@@ -85,7 +85,7 @@ setInterval(function() {
   }
   
     notesHit += notesHitPerSecond * deltaTime;
-    hardestFC = Math.floor(notesHit / (1000 * Math.Pow(4, hardestFC)))
+    hardestFC = Math.floor(notesHit / (1000 * Math.Pow(4, hardestFC * Math.Pow(1.25, hardestFC))))
   hardestFCBoost = Math.Pow(1.5, hardestFC)
   
   }
