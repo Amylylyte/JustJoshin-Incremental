@@ -104,12 +104,19 @@ setInterval(function() {
   }
 
   if (notesHitPerSecond < 1e3) {
-    document.getElementById("NotesHitPerSecond").innerHTML = notesHitPerSecond.toFixed(2)
+    document.getElementById("NotesHitPerSecond").innerHTML = notesHitPerSecond.toFixed(2);
   }
   if (notesHitPerSecond >= 1e3) {
     document.getElementById("NotesHitPerSecond").innerHTML = notesHitPerSecond.toExponential(2);
   }
   document.getElementById("FCName").textContent = FCName[hardestFC];
+    if (notesForNextHardest < 1e3) {
+document.getElementById("NotesForNextFC").innerHTML = notesForNextHardest.toFixed(2);
+    }
+    else if (notesForNextHardest >= 1e3) {
+        document.getElementById("NotesForNextFC").innerHTML = notesForNextHardest.toExponential(2);
+    }
+
 
   document.getElementById("FCBoost").innerHTML = hardestFCBoost.toFixed(2);
   if (U1PRICE_ < 1e3) {
