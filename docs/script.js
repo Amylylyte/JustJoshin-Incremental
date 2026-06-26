@@ -118,7 +118,7 @@ document.getElementById("NotesForNextFC").innerHTML = notesForNextHardest.toFixe
     }
 
 
-  document.getElementById("FCBoost").innerHTML = hardestFCBoost.toFixed(2);
+  document.getElementById("FCBoost").textContent = hardestFCBoost.toFixed(2);
   if (U1PRICE_ < 1e3) {
     document.getElementById("U1Price").innerHTML = U1PRICE_.toFixed(2)
   }
