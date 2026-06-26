@@ -91,7 +91,7 @@ setInterval(function() {
   U1BOOST_ = Math.pow(U1POWER_, U1BOUGHT_)
   U2BOOST_ = Math.pow(U2POWER_, U2BOUGHT_)
   U3BOOST_ = Math.pow(U3POWER_, U3BOUGHT_)
-  if (EntropyStarted == 0) {
+  if (CareerStarted == 0) {
     hardestFC = 0
   }
   if (notesHit < 1e3) {
