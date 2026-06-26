@@ -4,4 +4,7 @@ html {
   background: linear-gradient(to bottom, #4c4168, #2c4168);
   line-height: 1.5;
   text-align: center;
+  footer {
+    background-color: #2c4168;
+  }
 }
