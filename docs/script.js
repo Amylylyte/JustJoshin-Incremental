@@ -108,6 +108,7 @@ setInterval(function() {
   if (notesHitPerSecond >= 1e3) {
     document.getElementById("NotesHitPerSecond").innerHTML = notesHitPerSecond.toExponential(2);
   }
+  document.getElementById("FCName").textContent = FCName[hardestFC];
 
   document.getElementById("Hardest").innerHTML = hardestFC.toFixed(2);
   document.getElementById("FCBoost").innerHTML = hardestFCBoost.toFixed(2);
