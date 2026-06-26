@@ -16,6 +16,11 @@ let U3PRICE_ = 1e30;
 let U3BOUGHT_ = 0;
 let U3POWER_ = 2;
 let lastTime = 0;
+const teamNames = {
+    1: "Stricken",
+    2: "Real Madrid CF",
+    3: "FC Barcelona",
+};
 
 function CareerStart() {
   if (notesHit == 0) {
