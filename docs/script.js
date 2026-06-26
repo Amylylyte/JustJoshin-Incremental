@@ -1,6 +1,5 @@
 let notesHit = 0;
 let notesHitPerSecond = 0;
-let hardestFC = 0;
 let hardestFCBoost = 0;  
 let CareerStarted = 0;
 let U1BOOST_ = 1;
@@ -16,10 +15,23 @@ let U3PRICE_ = 1e30;
 let U3BOUGHT_ = 0;
 let U3POWER_ = 2;
 let lastTime = 0;
-const teamNames = {
+let hardestFC = 0;
+const FCName = {
     1: "Stricken",
-    2: "Real Madrid CF",
-    3: "FC Barcelona",
+    2: "Cliffs of Dover",
+    3: "One",
+    4: "TTFAF",
+    5: "Soulless 3",
+    6: "Wiiolation",
+    7: "DNA Uber Solo 9",
+    8: "Minds of The Mad 125%",
+    9: "Dashed Hopes III",
+    10: "Prevail",
+    11: "Tramatic Carnival 115%",
+    12: "Soulless 6 105%",
+    13: "Prevail 115%",
+    14: "Supernovae",
+    15: "Supernovae 125",
 };
 
 function CareerStart() {
