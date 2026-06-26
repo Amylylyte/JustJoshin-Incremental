@@ -16,6 +16,7 @@ let U3BOUGHT_ = 0;
 let U3POWER_ = 2;
 let lastTime = 0;
 let hardestFC = 0;
+let notesForNextHardest = 0;
 const FCName = {
     0: "None",
     1: "Stricken",
@@ -88,7 +89,7 @@ setInterval(function() {
     notesHit += notesHitPerSecond * deltaTime;
     hardestFC = Math.floor(notesHit / (1000 * Math.pow(4, hardestFC * Math.pow(1.25, hardestFC))))
   hardestFCBoost = Math.pow(1.5, hardestFC)
-
+  notesForNextHardest = notesHit / (1000 * Math.pow(4, (hardestFC + 1) * Math.pow(1.25, hardestFC + 1)))
   U1BOOST_ = Math.pow(U1POWER_, U1BOUGHT_)
   U2BOOST_ = Math.pow(U2POWER_, U2BOUGHT_)
   U3BOOST_ = Math.pow(U3POWER_, U3BOUGHT_)
