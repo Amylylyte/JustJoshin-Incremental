@@ -59,7 +59,7 @@ function Upgrade1() {
     U1BOUGHT_ += 1;
 
   }
-}
+
 function Upgrade2() {
   if (notesHit >= U2PRICE_ && hardestFC >= 1) {
       notesHit -= U2PRICE_;
