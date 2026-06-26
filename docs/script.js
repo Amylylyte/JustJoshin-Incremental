@@ -86,8 +86,7 @@ setInterval(function() {
     notesHit += notesHitPerSecond * deltaTime;
     hardestFC = Math.floor(notesHit / (1000 * Math.Pow(4, hardestFC * Math.Pow(1.25, hardestFC))))
   hardestFCBoost = Math.Pow(1.5, hardestFC)
-  
-  }
+
   U1BOOST_ = Math.pow(U1POWER_, U1BOUGHT_)
   U2BOOST_ = Math.pow(U2POWER_, U2BOUGHT_)
   U3BOOST_ = Math.pow(U3POWER_, U3BOUGHT_)
