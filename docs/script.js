@@ -17,6 +17,7 @@ let U3POWER_ = 2;
 let lastTime = 0;
 let hardestFC = 0;
 const FCName = {
+    0: "None",
     1: "Stricken",
     2: "Cliffs of Dover",
     3: "One",
