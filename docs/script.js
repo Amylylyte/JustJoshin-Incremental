@@ -110,7 +110,6 @@ setInterval(function() {
   }
   document.getElementById("FCName").textContent = FCName[hardestFC];
 
-  document.getElementById("Hardest").innerHTML = hardestFC.toFixed(2);
   document.getElementById("FCBoost").innerHTML = hardestFCBoost.toFixed(2);
   if (U1PRICE_ < 1e3) {
     document.getElementById("U1Price").innerHTML = U1PRICE_.toFixed(2)
