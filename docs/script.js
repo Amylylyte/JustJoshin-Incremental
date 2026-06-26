@@ -87,7 +87,7 @@ setInterval(function() {
   }
   
     notesHit += notesHitPerSecond * deltaTime;
-    if (notesHit >= Math.floor(notesHit / (1000 * Math.pow(4, hardestFC * Math.pow(1.25, hardestFC))))) {
+    if (notesHit >= Math.floor(notesHit / (1000 * Math.pow(4, hardestFC * Math.pow(1.05, hardestFC))))) {
         hardestFC += 1;
     }
   hardestFCBoost = Math.pow(1.5, hardestFC)
