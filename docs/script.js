@@ -36,7 +36,6 @@ const FCName = {
 
 function CareerStart() {
   if (notesHit == 0) {
-    notesHit += 1;
     CareerStarted = 1;
   }
 }
