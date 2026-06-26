@@ -33,6 +33,7 @@ const FCName = {
     14: "Supernovae",
     15: "Supernovae 125",
 };
+const deltaTime;
 
 function CareerStart() {
   if (notesHit == 0) {
@@ -41,7 +42,7 @@ function CareerStart() {
 }
 
 function animate(currentTime) {
-    const deltaTime = (currentTime - lastTime) / 1000; // Convert to seconds
+    deltaTime = (currentTime - lastTime) / 1000; // Convert to seconds
     lastTime = currentTime;
 
     console.log("DeltaTime:", deltaTime);
