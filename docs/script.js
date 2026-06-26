@@ -33,7 +33,7 @@ const FCName = {
     14: "Supernovae",
     15: "Supernovae 125",
 };
-const deltaTime;
+let deltaTime = 0;
 
 function CareerStart() {
   if (notesHit == 0) {
