@@ -163,9 +163,7 @@ setInterval(function() {
 
     // Update FC-related values
     hardestFCBoost = Decimal.pow(1.5, hardestFC);
-    notesForNextHardest = new Decimal(1000)
-        .pow(Decimal.pow(1.335785623, hardestFC)).pow(Decimal.pow(10, Decimal.floor(hardestFC.div(10))))
-        .floor();
+    notesForNextHardest = new Decimal(1000).pow(Decimal.pow(1.335785623, hardestFC)).pow(Decimal.pow(10, Decimal.floor(Decimal(highestFC).div(10)))).floor();
     U1BOOST_ = Decimal.pow(U1POWER_, U1BOUGHT_);
     U2BOOST_ = Decimal.pow(U2POWER_, U2BOUGHT_);
     U3BOOST_ = Decimal.pow(U3POWER_, U3BOUGHT_);
