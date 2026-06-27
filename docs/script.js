@@ -368,7 +368,7 @@ function OvertapReset() {
     U3BOUGHT_ = 0;
     hardestFC = 0;
     clicks = 0;
-    notesHitPerSecond = new Decimal(0);
+    notesHitPerSecond = new Decimal(1);
     notesHit = new Decimal(0);
     OvertapPoints = OvertapPoints.plus(pendingOvertap);
     pendingOvertap = new Decimal(0);
