@@ -97,11 +97,11 @@ setInterval(function() {
   }
   
     notesHit += notesHitPerSecond * deltaTime;
-    if (notesHit > Math.floor(100 + 210 * Math.pow(4, hardestFC * Math.pow(1.05, hardestFC)))) {
+    if (notesHit > Math.floor(100 + 210 * Math.pow(4, hardestFC * Math.pow(1.05, hardestFC * 2)))) {
         hardestFC += 1;
     }
   hardestFCBoost = Math.pow(1.5, hardestFC)
-  notesForNextHardest = Math.floor(100 + 210 * Math.pow(4, (hardestFC + 1) * Math.pow(1.05, hardestFC + 1)));
+  notesForNextHardest = Math.floor(100 + 210 * Math.pow(4, (hardestFC + 1) * Math.pow(1.05, (hardestFC + 1) * 2)));
   U1BOOST_ = Math.pow(U1POWER_, U1BOUGHT_)
   U2BOOST_ = Math.pow(U2POWER_, U2BOUGHT_)
   U3BOOST_ = Math.pow(U3POWER_, U3BOUGHT_)
