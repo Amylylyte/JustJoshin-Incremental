@@ -1,26 +1,26 @@
 // Game State
-let notesHit = 0;
-let notesHitPerSecond = 0;
-let hardestFCBoost = 0;
+let notesHit = new Decimal(0);
+let notesHitPerSecond = new Decimal(0);
+let hardestFCBoost = new Decimal(0);
 let CareerStarted = 0;
-let U1BOOST_ = 1;
-let U1PRICE_ = 25;
-let U1BOUGHT_ = 0;
-let U1POWER_ = 1.2;
-let U2BOOST_ = 1;
-let U2PRICE_ = 500;
+let U1BOOST_ = new Decimal(1);
+let U1PRICE_ = new Decimal(25);
+let U1BOUGHT_ = 0; // Integer, no need for Decimal
+let U1POWER_ = 1.2; // Float, no need for Decimal
+let U2BOOST_ = new Decimal(1);
+let U2PRICE_ = new Decimal(500);
 let U2BOUGHT_ = 0;
 let U2POWER_ = 3;
-let U3BOOST_ = 1;
-let U3PRICE_ = 1e30;
+let U3BOOST_ = new Decimal(1);
+let U3PRICE_ = new Decimal("1e30");
 let U3BOUGHT_ = 0;
 let U3POWER_ = 1.25;
 let lastTime = 0;
-let hardestFC = 0;
-let notesForNextHardest = 0;
-let clicks = 0;
+let hardestFC = 0; // Integer, no need for Decimal
+let notesForNextHardest = new Decimal(0);
+let clicks = 0; // Integer, no need for Decimal
 let deltaTime = 0;
-let pendingOvertap = 0;
+let pendingOvertap = new Decimal(0);
 
 // FC Names
 const FCName = {
@@ -54,14 +54,27 @@ const resetText = (hardestFC) => {
 
 // Format Numbers
 function formatNumber(num) {
-    if (num >= 1000000000) {
-        return num.toExponential(2).replace("e+", "e");
-    } else if (num >= 1000) {
-        return Math.floor(num).toLocaleString();
-    } else if (Number.isInteger(num)) {
-        return num.toString();
+    if (num instanceof Decimal) {
+        if (num.greaterThanOrEqualTo(1e9)) {
+            return num.toExponential(2).replace("e+", "e");
+        } else if (num.greaterThanOrEqualTo(1000)) {
+            return num.toNumber().toLocaleString();
+        } else if (num.isInteger()) {
+            return num.toString();
+        } else {
+            return num.toNumber().toFixed(2).replace(/\.?0+$/, '');
+        }
     } else {
-        return num.toFixed(2).replace(/\.?0+$/, '');
+        // Fallback for non-Decimal numbers
+        if (num >= 1e9) {
+            return num.toExponential(2).replace("e+", "e");
+        } else if (num >= 1000) {
+            return Math.floor(num).toLocaleString();
+        } else if (Number.isInteger(num)) {
+            return num.toString();
+        } else {
+            return num.toFixed(2).replace(/\.?0+$/, '');
+        }
     }
 }
 
@@ -94,37 +107,46 @@ function CareerStart() {
 
 // Upgrades
 function Upgrade1() {
-    if (notesHit >= U1PRICE_) {
-        notesHit -= U1PRICE_;
+    if (notesHit.greaterThanOrEqualTo(U1PRICE_)) {
+        notesHit = notesHit.minus(U1PRICE_);
         U1BOUGHT_ += 1;
-        U1PRICE_ = Math.floor(U1PRICE_ * 1.25 * Math.pow(1.01, U1BOUGHT_));
-        U1BOOST_ = Math.pow(U1POWER_, U1BOUGHT_);
+        U1PRICE_ = U1PRICE_
+            .times(1.25)
+            .times(Decimal.pow(1.01, U1BOUGHT_))
+            .floor();
+        U1BOOST_ = Decimal.pow(U1POWER_, U1BOUGHT_);
     }
 }
 
 function Upgrade2() {
-    if (notesHit >= U2PRICE_ && hardestFC >= 1) {
-        notesHit -= U2PRICE_;
+    if (notesHit.greaterThanOrEqualTo(U2PRICE_) && hardestFC >= 1) {
+        notesHit = notesHit.minus(U2PRICE_);
         U2BOUGHT_ += 1;
-        U2PRICE_ = Math.floor(U2PRICE_ * 10 * Math.pow(1.02, U2BOUGHT_));
-        U2BOOST_ = Math.pow(U2POWER_, U2BOUGHT_);
+        U2PRICE_ = U2PRICE_
+            .times(10)
+            .times(Decimal.pow(1.02, U2BOUGHT_))
+            .floor();
+        U2BOOST_ = Decimal.pow(U2POWER_, U2BOUGHT_);
     }
 }
 
 function Upgrade3() {
-    if (notesHit >= U3PRICE_ && hardestFC >= 3) {
-        notesHit -= U3PRICE_;
+    if (notesHit.greaterThanOrEqualTo(U3PRICE_) && hardestFC >= 3) {
+        notesHit = notesHit.minus(U3PRICE_);
         U3BOUGHT_ += 1;
-        U3PRICE_ = Math.floor(U3PRICE_ * 5 * Math.pow(1.15, U3BOUGHT_));
-        U3BOOST_ = Math.pow(U3POWER_, U3BOUGHT_);
+        U3PRICE_ = U3PRICE_
+            .times(5)
+            .times(Decimal.pow(1.15, U3BOUGHT_))
+            .floor();
+        U3BOOST_ = Decimal.pow(U3POWER_, U3BOUGHT_);
     }
 }
 
 // Overtap Reset
 function OvertapReset() {
-    notesHit = 0;
+    notesHit = new Decimal(0);
     hardestFC = 0;
-    pendingOvertap = 0;
+    pendingOvertap = new Decimal(0);
     updateOvertapButton();
 }
 
@@ -140,23 +162,31 @@ requestAnimationFrame(animate);
 // Main Game Loop
 setInterval(function() {
     if (CareerStarted === 1) {
-        notesHitPerSecond = 1 * hardestFCBoost * U1BOOST_ * U2BOOST_ * Math.pow(Math.log10(clicks + 9), U3BOOST_);
+        notesHitPerSecond = new Decimal(1)
+            .times(hardestFCBoost)
+            .times(U1BOOST_)
+            .times(U2BOOST_)
+            .times(Decimal.pow(Decimal.log10(clicks + 9), U3BOOST_));
     }
 
-    notesHit += notesHitPerSecond * deltaTime;
+    notesHit = notesHit.plus(notesHitPerSecond.times(deltaTime));
 
     // Check for new FC
-    const fcThreshold = Math.floor(Math.pow(1000, 1 * Math.pow(4/2.999, hardestFC)));
-    if (notesHit > fcThreshold) {
+    const fcThreshold = new Decimal(1000)
+        .pow(Decimal.pow(4/2.999, hardestFC))
+        .floor();
+    if (notesHit.greaterThan(fcThreshold)) {
         hardestFC += 1;
     }
 
     // Update FC-related values
-    hardestFCBoost = Math.pow(1.5, hardestFC);
-    notesForNextHardest = Math.floor(Math.pow(1000, 1 * Math.pow(4/2.999, hardestFC)));
-    U1BOOST_ = Math.pow(U1POWER_, U1BOUGHT_);
-    U2BOOST_ = Math.pow(U2POWER_, U2BOUGHT_);
-    U3BOOST_ = Math.pow(U3POWER_, U3BOUGHT_);
+    hardestFCBoost = Decimal.pow(1.5, hardestFC);
+    notesForNextHardest = new Decimal(1000)
+        .pow(Decimal.pow(4/3, hardestFC))
+        .floor();
+    U1BOOST_ = Decimal.pow(U1POWER_, U1BOUGHT_);
+    U2BOOST_ = Decimal.pow(U2POWER_, U2BOUGHT_);
+    U3BOOST_ = Decimal.pow(U3POWER_, U3BOUGHT_);
 
     if (CareerStarted === 0) {
         hardestFC = 0;
@@ -164,14 +194,15 @@ setInterval(function() {
 
     // Calculate pendingOvertap
     if (hardestFC >= 5) {
-        pendingOvertap = Math.pow(10, (Math.log10(notesHit/3.03e9)/9));
+        pendingOvertap = Decimal.pow(
+            10,
+            Decimal.div(Decimal.log10(notesHit.div(3.03e9)), 9)
+        );
         OvertapButton.disabled = false;
-    }
-    else if (hardestFC < 5) {
-        pendingOvertap = 0;
+    } else if (hardestFC < 5) {
+        pendingOvertap = new Decimal(0);
         OvertapButton.disabled = true;
     }
-
 
     // Update UI
     document.getElementById("NotesHit").textContent = formatNumber(notesHit);
