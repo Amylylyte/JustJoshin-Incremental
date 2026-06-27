@@ -176,6 +176,39 @@ function updateOvertapUpgradeButtons() {
             "(Price: 250 Overtap Points)";
         OU3Boost = new Decimal(1);
     }
+    if (OU4Purchased == 0) {
+        overtapUpgrade4Button.style.backgroundColor = "#70964c";
+        overtapUpgrade4Button.disabled = false;
+        overtapUpgrade4Text.textContent =
+            "(Price: 25 Overtap Points)";
+    }
+    if (OU5Purchased == 0) {
+        overtapUpgrade5Button.style.backgroundColor = "#70964c";
+        overtapUpgrade5Button.disabled = false;
+        overtapUpgrade5Text.textContent =
+            "(Price: 250 Overtap Points)";
+        OU5Boost = new Decimal(1);
+    }
+    if (OU6Purchased == 0) {
+        overtapUpgrade6Button.style.backgroundColor = "#70964c";
+        overtapUpgrade6Button.disabled = false;
+        overtapUpgrade6Text.textContent =
+            "(Price: 6,250 Overtap Points)";
+    }
+    if (OU7Purchased == 0) {
+        overtapUpgrade7Button.style.backgroundColor = "#70964c";
+        overtapUpgrade7Button.disabled = false;
+        overtapUpgrade7Text.textContent =
+            "(Price: 100,000 Overtap Points)";
+        OU7Boost = new Decimal(1);
+    }
+    if (OU8Purchased == 0) {
+        overtapUpgrade8Button.style.backgroundColor = "#70964c";
+        overtapUpgrade8Button.disabled = false;
+        overtapUpgrade8Text.textContent =
+            "(Price: 1e10 Overtap Points)";
+        OU8Boost = new Decimal(1);
+    }
     if (OU1Purchased == 1) {
         overtapUpgrade1Button.style.backgroundColor = "#95e347";
         overtapUpgrade1Button.disabled = true;
@@ -196,6 +229,39 @@ function updateOvertapUpgradeButtons() {
         overtapUpgrade3Text.textContent =
             "";
         OU3Boost = new Decimal(0.9);
+    }
+    if (OU4Purchased == 1) {
+        overtapUpgrade4Button.style.backgroundColor = "#95e347";
+        overtapUpgrade4Button.disabled = true;
+        overtapUpgrade4Text.textContent =
+            "";
+    }
+    if (OU5Purchased == 1) {
+        overtapUpgrade5Button.style.backgroundColor = "#95e347";
+        overtapUpgrade5Button.disabled = true;
+        overtapUpgrade5Text.textContent =
+            "Currently: ^" + formatNumber(OU5Boost);
+        OU5Boost = new Decimal(1).times(((OvertapPoints.plus(10)).log10()).log2);
+    }
+    if (OU6Purchased == 1) {
+        overtapUpgrade6Button.style.backgroundColor = "#95e347";
+        overtapUpgrade6Button.disabled = true;
+        overtapUpgrade6Text.textContent =
+            "";
+    }
+    if (OU7Purchased == 1) {
+        overtapUpgrade7Button.style.backgroundColor = "#95e347";
+        overtapUpgrade7Button.disabled = true;
+        overtapUpgrade7Text.textContent =
+        "Currently: x" + formatNumber(OU5Boost);
+        OU7Boost = new Decimal(1.05).pow((OvertapsPerformed.plus(1)).log10());
+    }
+    if (OU8Purchased == 1) {
+        overtapUpgrade8Button.style.backgroundColor = "#95e347";
+        overtapUpgrade8Button.disabled = true;
+        overtapUpgrade8Text.textContent =
+        "Currently: x" + formatNumber(OU5Boost);
+        OU8Boost = new Decimal(1.05).pow((U1BOOST_.plus(1)).log10());
     }
 }
 
