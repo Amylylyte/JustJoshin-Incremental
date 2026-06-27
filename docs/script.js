@@ -45,7 +45,7 @@ const savedPlayerData = localStorage.getItem("playerData");
 
 const player = {
     notes: notesHit,
-    started: careerStarted,
+    started: CareerStarted,
     u1: U1BOUGHT_,
     u2: U2BOUGHT_,
     u3: U3BOUGHT_,
