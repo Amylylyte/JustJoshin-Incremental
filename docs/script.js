@@ -126,9 +126,6 @@ function updateHeaderButtons() {
         if (hardestFC >= 3) {
             button.style.display = "block";
             button.disabled = false;
-        } else {
-            button.style.display = "none";
-            button.disabled = true;
         }
     });
 }
