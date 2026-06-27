@@ -159,9 +159,19 @@ function updateOvertapUpgradeButtons() {
     const overtapUpgrade1Button = document.getElementById("OvertapUpgrade1");
     const overtapUpgrade2Button = document.getElementById("OvertapUpgrade2");
     const overtapUpgrade3Button = document.getElementById("OvertapUpgrade3");
+    const overtapUpgrade4Button = document.getElementById("OvertapUpgrade4");
+    const overtapUpgrade5Button = document.getElementById("OvertapUpgrade5");
+    const overtapUpgrade6Button = document.getElementById("OvertapUpgrade6");
+    const overtapUpgrade7Button = document.getElementById("OvertapUpgrade7");
+    const overtapUpgrade8Button = document.getElementById("OvertapUpgrade8");
     const overtapUpgrade1Text = document.getElementById("OvertapUpgrade1Text");
     const overtapUpgrade2Text = document.getElementById("OvertapUpgrade2Text");
     const overtapUpgrade3Text = document.getElementById("OvertapUpgrade3Text");
+    const overtapUpgrade4Text = document.getElementById("OvertapUpgrade4Text");
+    const overtapUpgrade5Text = document.getElementById("OvertapUpgrade5Text");
+    const overtapUpgrade6Text = document.getElementById("OvertapUpgrade6Text");
+    const overtapUpgrade7Text = document.getElementById("OvertapUpgrade7Text");
+    const overtapUpgrade8Text = document.getElementById("OvertapUpgrade8Text");
 
     if (OU1Purchased == 0) {
         overtapUpgrade1Button.style.backgroundColor = "#70964c";
