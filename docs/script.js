@@ -39,6 +39,7 @@ let OU5Boost = new Decimal(1);
 let OU7Boost = new Decimal(1);
 let OU8Boost = new Decimal(1);
 let timePlayed = new Decimal(0);
+let gameActive = true;
 
 // FC Names
 const FCName = {
@@ -61,6 +62,7 @@ const resetText = (hardestFC) => {
     }
     return "No reset message available.";
 };
+
 
 // Format Numbers
 function formatNumber(num) {
@@ -378,11 +380,24 @@ function OvertapReset() {
 }
 
 // Animation Loop
-function animate(currentTime) {
-    deltaTime = (currentTime - lastTime) / 1000;
+function gameLoop(currentTime) {
+    if (!gameActive) return;
+
+    const deltaTime = currentTime - lastTime;
     lastTime = currentTime;
-    requestAnimationFrame(animate);
+
+    // Update game logic (e.g., player position, enemies, etc.)
+    updateGame(deltaTime);
+
+    // Render the game
+    renderGame();
+
+    // Continue the loop
+    requestAnimationFrame(gameLoop);
 }
+
+// Start the game loop
+requestAnimationFrame(gameLoop);
 
 requestAnimationFrame(animate);
 
@@ -473,6 +488,8 @@ setInterval(function() {
     document.getElementById("overtapsPerformed").textContent = formatNumber(OvertapsPerformed);
     document.getElementById("overtapsBoost").textContent = formatNumber(OvertapsBoost);
 
+    
+
     // Update Overtap Button
     if (OU4Purchased == 1) {
         Upgrade1();
@@ -482,3 +499,11 @@ setInterval(function() {
     updateOvertapUpgradeButtons();
     updateHeaderButtons();
 }, 25);
+
+document.addEventListener('visibilitychange', () => {
+    gameActive = !document.hidden;
+    if (gameActive) {
+        lastTime = performance.now();
+        requestAnimationFrame(gameLoop);
+    }
+});
