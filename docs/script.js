@@ -39,7 +39,6 @@ let OU5Boost = new Decimal(1);
 let OU7Boost = new Decimal(1);
 let OU8Boost = new Decimal(1);
 let timePlayed = new Decimal(0);
-let gameActive = true;
 
 // FC Names
 const FCName = {
@@ -380,7 +379,7 @@ function OvertapReset() {
 }
 
 // Main Game Loop
-function updateGame(deltaTime) {
+setInterval(function() {
     if (CareerStarted === 1) {
         notesHitPerSecond = new Decimal(1)
             .times(hardestFCBoost)
@@ -453,14 +452,6 @@ function updateGame(deltaTime) {
         CareerStarted = 1;
     }
 
-        if (OU4Purchased == 1) {
-        Upgrade1();
-        Upgrade2();
-    }
-
-}
-
-function renderGame() {
     // Update UI
     document.getElementById("NotesHit").textContent = formatNumber(notesHit);
     document.getElementById("NotesHitPerSecond").textContent = formatNumber(notesHitPerSecond);
@@ -477,33 +468,11 @@ function renderGame() {
     
 
     // Update Overtap Button
+    if (OU4Purchased == 1) {
+        Upgrade1();
+        Upgrade2();
+    }
     updateOvertapButton();
     updateOvertapUpgradeButtons();
     updateHeaderButtons();
-}
-function gameLoop(currentTime) {
-    if (!gameActive) return;
-
-    const deltaTime = currentTime - lastTime;
-    lastTime = currentTime;
-
-    // Update game logic (e.g., player position, enemies, etc.)
-    updateGame(deltaTime);
-
-    // Render the game
-    renderGame();
-
-    // Continue the loop
-    requestAnimationFrame(gameLoop);
-}
-
-// Start the game loop
-requestAnimationFrame(gameLoop);
-
-document.addEventListener('visibilitychange', () => {
-    gameActive = !document.hidden;
-    if (gameActive) {
-        lastTime = performance.now();
-        requestAnimationFrame(gameLoop);
-    }
-});
+}, 25);
