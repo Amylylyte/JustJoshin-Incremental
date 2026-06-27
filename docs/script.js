@@ -13,7 +13,7 @@ let U2POWER_ = 3;
 let U3BOOST_ = 1;
 let U3PRICE_ = 1e30;
 let U3BOUGHT_ = 0;
-let U3POWER_ = 2;
+let U3POWER_ = 1.25;
 let lastTime = 0;
 let hardestFC = 0;
 let notesForNextHardest = 0;
@@ -34,7 +34,7 @@ const FCName = {
     12: "Soulless 6 105%",
     13: "Prevail 115%",
     14: "Supernovae",
-    15: "Supernovae 125",
+    15: "Supernovae 125%",
 };
 let deltaTime = 0;
 
@@ -68,7 +68,7 @@ function Upgrade1() {
       notesHit -= U1PRICE_;
     }
 
-    U1PRICE_ *= 1.25 * Math.pow(1.001, U1BOUGHT_);
+    U1PRICE_ *= 1.25 * Math.pow(1.01, U1BOUGHT_);
     U1BOUGHT_ += 1;
 
   }
@@ -77,7 +77,7 @@ function Upgrade2() {
   if (notesHit >= U2PRICE_ && hardestFC >= 1) {
       notesHit -= U2PRICE_;
     U2BOUGHT_ += 1;
-    U2PRICE_ *= 10 * Math.pow(1.01, U2BOUGHT_);
+    U2PRICE_ *= 10 * Math.pow(1.02, U2BOUGHT_);
   }
 }
 
@@ -93,7 +93,7 @@ function Upgrade3() {
 setInterval(function() {
 
   if (CareerStarted == 1) {
-    notesHitPerSecond = 1 * hardestFCBoost * U1BOOST_ * U2BOOST_ *  Math.log10(clicks + 9)
+    notesHitPerSecond = 1 * hardestFCBoost * U1BOOST_ * U2BOOST_ *  Math.pow(Math.log10(clicks + 9), U3BOOST_)
   }
   
     notesHit += notesHitPerSecond * deltaTime;
