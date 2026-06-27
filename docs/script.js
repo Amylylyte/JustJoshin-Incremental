@@ -17,6 +17,7 @@ let U3POWER_ = 2;
 let lastTime = 0;
 let hardestFC = 0;
 let notesForNextHardest = 0;
+let clicks = 0;
 const FCName = {
     0: "None",
     1: "Stricken",
@@ -41,6 +42,7 @@ function CareerStart() {
   if (notesHit == 0) {
     CareerStarted = 1;
   }
+    clicks += 1;
 }
 
 function animate(currentTime) {
@@ -83,7 +85,7 @@ function Upgrade3() {
 setInterval(function() {
 
   if (CareerStarted == 1) {
-    notesHitPerSecond = 1 * hardestFCBoost * U1BOOST_ * U2BOOST_
+    notesHitPerSecond = 1 * hardestFCBoost * U1BOOST_ * U2BOOST_ *  Math.log10(clicks + 9)
   }
   
     notesHit += notesHitPerSecond * deltaTime;
