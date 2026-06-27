@@ -166,7 +166,7 @@ setInterval(function() {
         .floor();
 } else if (hardestFC >= 17) {
     notesForNextHardest = new Decimal("1.8e308")
-        .pow(Decimal.pow(2.22607738633167440, (hardestFC || 0) - 16))
+        .pow(Decimal.pow(2.25, (hardestFC || 0) - 16))
         .floor();
 }
         
