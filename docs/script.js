@@ -390,7 +390,7 @@ setInterval(function() {
         .floor();
 }
         
-    U1BOOST_ = Decimal.pow(U1POWER_.times(OU7Boost), U1BOUGHT_);
+    U1BOOST_ = Decimal.pow((U1POWER_).times(OU7Boost), U1BOUGHT_);
     U2BOOST_ = Decimal.pow(U2POWER_, U2BOUGHT_);
     U3BOOST_ = Decimal.pow(U3POWER_, U3BOUGHT_);
     U1PRICE_ = new Decimal(25)
