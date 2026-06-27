@@ -24,6 +24,12 @@ let pendingOvertap = new Decimal(0);
 let OvertapPoints = new Decimal(0);
 let OvertapsPerformed = new Decimal(0);
 let OvertapsBoost = new Decimal(0);
+let OU1Purchased = 0;
+let OU2Purchased = 0;
+let OU3Purchased = 0;
+let OU1Boost = new Decimal(1);
+let OU2Boost = new Decimal(1);
+let OU3Boost = new Decimal(1);
 
 // FC Names
 const FCName = {
