@@ -28,10 +28,10 @@ const FCName = {
     9: "Dashed Hopes III", 10: "Prevail", 11: "Tramatic Carnival 115%", 12: "Soulless 6 105%", 13: "Prevail 115%", 14: "Supernovae", 15: "Spacerace 90%",
     16: "Spacerace 95%", 17: "Supernovae 125%", 18: "Spacerace 100%", 19: "Schmootopia", 20: "Cosmic Embassy", 21: "Hypnovia", 22: "Uber Solo", 23: "Cosmic Embassy 125%", 24: "Egoless",
     25: "Egoless 125%", 26: "Uber Solo 2", 27: "Uber Solo 2 125%", 28: "Uber Solo 2 150%", 29: "Fully Soulless 1,000%", 30: "Egoless 1,000%", 31: "Uber Solo 2 1,000%",
-    32: "Stricken 100,000%", 33: "One 1,000,000%", 34: "TTFAF 2,000,000%", 35: "Prevail 5,000,000%", 36: "Soulless 6 6,666,660%", 37: "Supernovae 12,125,125%",
-    38: "Cosmic Embassy 43,765,980%", 39: "Hypnovia 123,456,780%", 40: "Uber Solo 1e9%", 41: "Fully Soulless 1.12e12%", 42: "Egoless 9.99e15%", 43: "Uber Solo 2 2.22e22%",
-    44: "My Name is Jonas 5e25%", 45: "xXXi_wud_nvrstøp_ÜXXx (Remix) 3.33e33%", 46: "Glacial Storm 5 5.55e55%", 47: "Soulless 1337 1e100%", 48: "Supernovae 1.25e125%",
-    49: "Schmootopia 1e500%", 50: "Act 9: Egoless 9.99e999%", 51: "Slow Ride 9.99e99,999%"
+    32: "Stricken 100,000%", 33: "One 1,000,000%", 34: "TTFAF 2,000,000%", 35: "Prevail 5,000,000%", 36: "Soulless 6 66,666,660%", 37: "Supernovae 125,125,125%",
+    38: "Cosmic Embassy 2.5e9%", 39: "Hypnovia 1.7e14%", 40: "Uber Solo 1e19%", 41: "Fully Soulless 1.23e45%", 42: "Egoless 9.99e99%", 43: "Uber Solo 2 2.22e222%",
+    44: "My Name is Jonas 5e525%", 45: "xXXi_wud_nvrstøp_ÜXXx (Remix) 3.33e999%", 46: "Glacial Storm 5 5.55e5,555%", 47: "Soulless 1337 1.3e13,370%", 48: "Supernovae 1.25e125,125%",
+    49: "Schmootopia 1e567,890%", 50: "Act 9: Egoless 9.99e999,999,999%", 51: "Slow Ride"
 };
 
 // Reset Text Logic
