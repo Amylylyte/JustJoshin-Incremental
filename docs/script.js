@@ -62,7 +62,6 @@ const resetText = (hardestFC) => {
     return "No reset message available.";
 };
 
-
 // Format Numbers
 function formatNumber(num) {
     if (num instanceof Decimal) {
@@ -276,13 +275,6 @@ function updateOvertapUpgradeButtons() {
     }
 }
 
-function gameLoop(currentTime) {
-    if (!gameActive) return;
-
-    const deltaTime = currentTime - lastTime;
-    lastTime = currentTime;
-}
-
 // Career Start
 function CareerStart() {
     if (notesHit.equals(0)) {  // Use .equals() for Decimal objects
@@ -385,6 +377,15 @@ function OvertapReset() {
     updateOvertapButton();
 }
 
+// Animation Loop
+function animate(currentTime) {
+    deltaTime = (currentTime - lastTime) / 1000;
+    lastTime = currentTime;
+    requestAnimationFrame(animate);
+}
+
+requestAnimationFrame(animate);
+
 // Main Game Loop
 setInterval(function() {
     if (CareerStarted === 1) {
@@ -471,8 +472,6 @@ setInterval(function() {
     document.getElementById("overtapPoints").textContent = formatNumber(OvertapPoints);
     document.getElementById("overtapsPerformed").textContent = formatNumber(OvertapsPerformed);
     document.getElementById("overtapsBoost").textContent = formatNumber(OvertapsBoost);
-
-    
 
     // Update Overtap Button
     if (OU4Purchased == 1) {
