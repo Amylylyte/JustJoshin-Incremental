@@ -179,6 +179,9 @@ function Upgrade3() {
 
 // Overtap Reset
 function OvertapReset() {
+    U1BOUGHT_ = 0;
+    U2BOUGHT_ = 0;
+    U3BOUGHT_ = 0;
     notesHit = new Decimal(0);
     hardestFC = 0;
     Clicks = 0;
