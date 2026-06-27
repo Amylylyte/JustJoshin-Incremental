@@ -210,9 +210,9 @@ setInterval(function() {
             .times(U2BOOST_)
             .times(Decimal.pow(Decimal.log10(clicks + 9), U3BOOST_))
             .times(OvertapsBoost);
+            notesHit = notesHit.plus(notesHitPerSecond.times(deltaTime));
     }
 
-    notesHit = notesHit.plus(notesHitPerSecond.times(deltaTime));
 
     // Check for new FC
     if (notesHit.greaterThan(notesForNextHardest)) {
