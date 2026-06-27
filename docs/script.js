@@ -63,6 +63,7 @@ const player = {
     OU8: OU8Purchased,
     time: timePlayed,
 }
+const player = JSON.parse(savedPlayerData);
 
 // FC Names
 const FCName = {
