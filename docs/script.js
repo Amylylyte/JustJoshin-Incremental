@@ -173,7 +173,7 @@ function updateOvertapUpgradeButtons() {
         overtapUpgrade1Button.disabled = true;
         overtapUpgrade1Text.textContent =
             "Currently: x" + formatNumber(OU1Boost);
-        OU1Boost = new Decimal(1).times(new Decimal(1.5).pow(((timePlayed.div(60)).plus(1)).log2));
+        OU1Boost = new Decimal(1).times(new Decimal(1.5).pow(((timePlayed.div(60)).plus(1)).log2()));
     }
     if (OU2Purchased == 1) {
         overtapUpgrade2Button.style.backgroundColor = "#95e347";
