@@ -68,13 +68,19 @@ function formatNumber(num) {
 // Update Overtap Button Visibility and Text
 function updateOvertapButton() {
     const overtapButton = document.getElementById("OvertapButton");
+    const overtapButtonText = document.getElementById("OvertapButtonText");
 
     if (hardestFC >= 3) {
         overtapButton.style.display = "block";
-        document.getElementById("ResetText").textContent = resetText(hardestFC);
-        document.getElementById("PendingOvertap").textContent = formatNumber(pendingOvertap);
+        overtapButton.disabled = false;
+        overtapButtonText.textContent =
+            resetText(hardestFC) +
+            " (" +
+            formatNumber(pendingOvertap) +
+            ")";
     } else {
         overtapButton.style.display = "none";
+        overtapButton.disabled = true;
     }
 }
 
