@@ -32,6 +32,11 @@
     padding: 0 10px;
 }
 
+#OvertapButtonText {
+    text-align: center;
+    width: 100%;
+}
+
             #OvertapButton span {
     display: block;
     text-align: center;
@@ -87,14 +92,9 @@
     <br>
     <br>
     <div id="buttonContainer">
-        <button
-            id="OvertapButton"
-            onclick="OvertapReset()"
-            disabled
-        >
-            <span id="ResetText"></span>
-            <span style="color: #d2e6bc; font-size: 120%;"> (+<span id="PendingOvertap">0</span>)</span>
-        </button>
+        <button id="OvertapButton" onclick="OvertapReset()" disabled>
+    <span id="OvertapButtonText"></span>
+</button>
     </div>
 
     <script src="script.js"></script>
