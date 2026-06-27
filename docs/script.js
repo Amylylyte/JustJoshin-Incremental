@@ -51,7 +51,7 @@ function formatNumber(num) {
     } else if (Number.isInteger(num)) {
         return num.toString(); // No decimals for integers
     } else {
-        return num.toFixed(2).replace(/\.?0+$/, ''); // Up to 3 decimals, remove trailing zeros
+        return num.toFixed(2); // Up to 3 decimals, remove trailing zeros
     }
 }
 
