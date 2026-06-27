@@ -294,7 +294,7 @@ function CareerStart() {
 // Upgrades
 function Upgrade1() {
     if (notesHit.greaterThanOrEqualTo(U1PRICE_)) {
-        if (OU6Purchased == ) {
+        if (OU6Purchased == 0) {
         notesHit = notesHit.minus(U1PRICE_);
         }
         U1BOUGHT_ += 1;
@@ -303,7 +303,7 @@ function Upgrade1() {
 
 function Upgrade2() {
     if (notesHit.greaterThanOrEqualTo(U2PRICE_) && hardestFC >= 1) {
-        if (OU6Purchased == ) {
+        if (OU6Purchased == 0) {
         notesHit = notesHit.minus(U2PRICE_);
         }
         U2BOUGHT_ += 1;
@@ -312,7 +312,7 @@ function Upgrade2() {
 
 function Upgrade3() {
     if (notesHit.greaterThanOrEqualTo(U3PRICE_) && hardestFC >= 3) {
-        if (OU6Purchased == ) {
+        if (OU6Purchased == 0) {
         notesHit = notesHit.minus(U3PRICE_);
         }
         U3BOUGHT_ += 1;
