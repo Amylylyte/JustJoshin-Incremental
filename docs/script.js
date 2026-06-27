@@ -294,21 +294,27 @@ function CareerStart() {
 // Upgrades
 function Upgrade1() {
     if (notesHit.greaterThanOrEqualTo(U1PRICE_)) {
+        if (OU6Purchased == ) {
         notesHit = notesHit.minus(U1PRICE_);
+        }
         U1BOUGHT_ += 1;
     }
 }
 
 function Upgrade2() {
     if (notesHit.greaterThanOrEqualTo(U2PRICE_) && hardestFC >= 1) {
+        if (OU6Purchased == ) {
         notesHit = notesHit.minus(U2PRICE_);
+        }
         U2BOUGHT_ += 1;
     }
 }
 
 function Upgrade3() {
     if (notesHit.greaterThanOrEqualTo(U3PRICE_) && hardestFC >= 3) {
+        if (OU6Purchased == ) {
         notesHit = notesHit.minus(U3PRICE_);
+        }
         U3BOUGHT_ += 1;
         
     }
@@ -441,6 +447,11 @@ setInterval(function() {
     document.getElementById("overtapsBoost").textContent = formatNumber(OvertapsBoost);
 
     // Update Overtap Button
+    if (OU4Purchased == 1) {
+        Upgrade1();
+        Upgrade2();
+        Upgrade3();
+    }
     updateOvertapButton();
     updateOvertapUpgradeButtons();
     updateHeaderButtons();
