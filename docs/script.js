@@ -215,6 +215,25 @@ function Upgrade3() {
     }
 }
 
+function OvertapUpgrade1() {
+    if (OvertapPoints.greaterThanOrEqualTo(1)) {
+        OvertapPoints = OvertapPoints.minus(1);
+        OU1Purchased = 1;
+    }
+}
+function OvertapUpgrade2() {
+    if (OvertapPoints.greaterThanOrEqualTo(10)) {
+        OvertapPoints = OvertapPoints.minus(10);
+        OU2Purchased = 1;
+    }
+}
+function OvertapUpgrade3() {
+    if (OvertapPoints.greaterThanOrEqualTo(250)) {
+        OvertapPoints = OvertapPoints.minus(250);
+        OU3Purchased = 1;
+    }
+}
+
 // Overtap Reset
 function OvertapReset() {
     U1BOUGHT_ = 0;
@@ -319,5 +338,6 @@ setInterval(function() {
 
     // Update Overtap Button
     updateOvertapButton();
+    updateOvertapUpgradeButtons();
     updateHeaderButtons();
 }, 25);
