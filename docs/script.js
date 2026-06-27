@@ -321,21 +321,51 @@ function Upgrade3() {
 }
 
 function OvertapUpgrade1() {
-    if (OvertapPoints.greaterThanOrEqualTo(1)) {
+    if (OvertapPoints.greaterThanOrEqualTo(1) && OU1Purchased == 0) {
         OvertapPoints = OvertapPoints.minus(1);
         OU1Purchased = 1;
     }
 }
 function OvertapUpgrade2() {
-    if (OvertapPoints.greaterThanOrEqualTo(10)) {
+    if (OvertapPoints.greaterThanOrEqualTo(10) && OU2Purchased == 0) {
         OvertapPoints = OvertapPoints.minus(10);
         OU2Purchased = 1;
     }
 }
 function OvertapUpgrade3() {
-    if (OvertapPoints.greaterThanOrEqualTo(250)) {
+    if (OvertapPoints.greaterThanOrEqualTo(250) && OU3Purchased == 0) {
         OvertapPoints = OvertapPoints.minus(250);
         OU3Purchased = 1;
+    }
+}
+function OvertapUpgrade4() {
+    if (OvertapPoints.greaterThanOrEqualTo(25) && OU4Purchased == 0) {
+        OvertapPoints = OvertapPoints.minus(25);
+        OU4Purchased = 1;
+    }
+}
+function OvertapUpgrade5() {
+    if (OvertapPoints.greaterThanOrEqualTo(250) && OU5Purchased == 0) {
+        OvertapPoints = OvertapPoints.minus(250);
+        OU5Purchased = 1;
+    }
+}
+function OvertapUpgrade6() {
+    if (OvertapPoints.greaterThanOrEqualTo(6250) && OU6Purchased == 0) {
+        OvertapPoints = OvertapPoints.minus(6250);
+        OU6Purchased = 1;
+    }
+}
+function OvertapUpgrade7() {
+    if (OvertapPoints.greaterThanOrEqualTo(1e5) && OU7Purchased == 0) {
+        OvertapPoints = OvertapPoints.minus(1e5);
+        OU7Purchased = 1;
+    }
+}
+function OvertapUpgrade8() {
+    if (OvertapPoints.greaterThanOrEqualTo(1e10) && OU8Purchased == 0) {
+        OvertapPoints = OvertapPoints.minus(1e10);
+        OU8Purchased = 1;
     }
 }
 
