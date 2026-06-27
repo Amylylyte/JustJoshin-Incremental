@@ -38,7 +38,32 @@ let OU3Boost = new Decimal(1);
 let OU5Boost = new Decimal(1);
 let OU7Boost = new Decimal(1);
 let OU8Boost = new Decimal(1);
-let timePlayed = new Decimal(0);
+let timePlayed = new Decimal(0); 
+const savedPlayerData = localStorage.getItem("playerData");
+const player = JSON.parse(savedPlayerData);
+
+// saving
+
+const player = {
+    notes: notesHit,
+    started: careerStarted,
+    u1: U1BOUGHT_,
+    u2: U2BOUGHT_,
+    u3: U3BOUGHT_,
+    fc: hardestFC,
+    click: clicks,
+    op: OvertapPoints,
+    Overtaps: OvertapsPerformed,
+    OU1: OU1Purchased,
+    OU2: OU2Purchased,
+    OU3: OU3Purchased,
+    OU4: OU4Purchased,
+    OU5: OU5Purchased,
+    OU6: OU6Purchased,
+    OU7: OU7Purchased,
+    OU8: OU8Purchased,
+    time: timePlayed,
+}
 
 // FC Names
 const FCName = {
@@ -116,7 +141,7 @@ function formatNumber(num) {
 
 
 
-
+localStorage.setItem("playerData", JSON.stringify(player));
 
 // Update Overtap Button Visibility and Text
 function updateOvertapButton() {
@@ -354,12 +379,40 @@ function OvertapUpgrade7() {
         OU7Purchased = 1;
     }
 }
+
+
 function OvertapUpgrade8() {
     if (OvertapPoints.greaterThanOrEqualTo(1e10) && OU8Purchased == 0) {
         OvertapPoints = OvertapPoints.minus(1e10);
         OU8Purchased = 1;
     }
 }
+
+
+function savePlayer() {
+      const player = {
+        notes: notesHit,
+    started: careerStarted,
+    u1: U1BOUGHT_,
+    u2: U2BOUGHT_,
+    u3: U3BOUGHT_,
+    fc: hardestFC,
+    click: clicks,
+    op: OvertapPoints,
+    Overtaps: OvertapsPerformed,
+    OU1: OU1Purchased,
+    OU2: OU2Purchased,
+    OU3: OU3Purchased,
+    OU4: OU4Purchased,
+    OU5: OU5Purchased,
+    OU6: OU6Purchased,
+    OU7: OU7Purchased,
+    OU8: OU8Purchased,
+    time: timePlayed,
+      };
+      localStorage.setItem("playerData", JSON.stringify(player));
+    }
+
 
 // Overtap Reset
 function OvertapReset() {
@@ -482,3 +535,5 @@ setInterval(function() {
     updateOvertapUpgradeButtons();
     updateHeaderButtons();
 }, 60);
+
+document.addEventListener("DOMContentLoaded", loadPlayer);
