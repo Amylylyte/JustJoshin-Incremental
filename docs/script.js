@@ -54,27 +54,17 @@ const resetText = (hardestFC) => {
 
 // Format Numbers
 function formatNumber(num) {
-    if (num instanceof Decimal) {
-        if (num.greaterThanOrEqualTo(1e9)) {
-            return num.toExponential(2).replace("e+", "e");
-        } else if (num.greaterThanOrEqualTo(1000)) {
-            return num.toNumber().toLocaleString();
-        } else if (num.isInteger()) {
-            return num.toString();
-        } else {
-            return num.toNumber().toFixed(2).replace(/\.?0+$/, '');
-        }
+    // Convert Decimal to number if it's a Decimal
+    const numericValue = num instanceof Decimal ? num.toNumber() : num;
+
+    if (numericValue >= 1e9) {
+        return num.toExponential(2).replace("e+", "e");
+    } else if (numericValue >= 1000) {
+        return numericValue.toLocaleString();
+    } else if (Number.isInteger(numericValue)) {
+        return numericValue.toString();
     } else {
-        // Fallback for non-Decimal numbers
-        if (num >= 1e9) {
-            return num.toExponential(2).replace("e+", "e");
-        } else if (num >= 1000) {
-            return Math.floor(num).toLocaleString();
-        } else if (Number.isInteger(num)) {
-            return num.toString();
-        } else {
-            return num.toFixed(2);
-        }
+        return numericValue.toFixed(2).replace(/\.?0+$/, '');
     }
 }
 
