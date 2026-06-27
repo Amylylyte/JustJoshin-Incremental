@@ -246,7 +246,7 @@ function updateOvertapUpgradeButtons() {
         overtapUpgrade3Button.disabled = true;
         overtapUpgrade3Text.textContent =
             "";
-        OU3Boost = new Decimal(0.9);
+        OU3Boost = new Decimal(0.8);
     }
     if (OU4Purchased == 1) {
         overtapUpgrade4Button.style.backgroundColor = "#95e347";
