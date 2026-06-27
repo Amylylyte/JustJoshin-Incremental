@@ -120,20 +120,14 @@ function updateOvertapButton() {
     }
 }
 function updateHeaderButtons() {
-    const headerButtons = document.getElementById("OvertapButton");
-    const overtapButtonText = document.getElementById("OvertapButtonText");
+    const headerButtons = document.getElementById("tab-button");
 
     if (hardestFC >= 3) {
-        overtapButton.style.display = "block";
-        overtapButton.disabled = false;
-        overtapButtonText.textContent =
-            resetText(hardestFC) +
-            " (" +
-            formatNumber(pendingOvertap) +
-            ")";
+        headerButtons.style.display = "block";
+        headerButtons.disabled = false;
     } else {
-        overtapButton.style.display = "none";
-        overtapButton.disabled = true;
+        headerButtons.style.display = "none";
+        headerButtons.disabled = true;
     }
 }
 
