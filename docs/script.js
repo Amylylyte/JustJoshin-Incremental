@@ -129,9 +129,9 @@ function updateOvertapButton() {
         overtapButton.style.backgroundColor = "#95e347";
         overtapButtonText.textContent =
             resetText(hardestFC) +
-            " (" +
+            " (+" +
             formatNumber(pendingOvertap) +
-            ")";
+            " Overtap Points)";
     }
     else if (hardestFC >= 3 && hardestFC < 5) {
         overtapButton.style.display = "block";
@@ -444,7 +444,7 @@ setInterval(function() {
     if (hardestFC >= 5) {
         pendingOvertap = Decimal.pow(
             10,
-            Decimal.div(Decimal.log10(notesHit.div(3.03e9)), 9)
+            Decimal.div(Decimal.log10(notesHit.div(3.03e9)), 8)
         ).floor();
         OvertapButton.disabled = false;
     } else if (hardestFC < 5) {
