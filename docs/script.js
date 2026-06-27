@@ -43,27 +43,8 @@ const savedPlayerData = localStorage.getItem("playerData");
 
 // saving
 
-const player = {
-    notes: notesHit,
-    started: CareerStarted,
-    u1: U1BOUGHT_,
-    u2: U2BOUGHT_,
-    u3: U3BOUGHT_,
-    fc: hardestFC,
-    click: clicks,
-    op: OvertapPoints,
-    Overtaps: OvertapsPerformed,
-    OU1: OU1Purchased,
-    OU2: OU2Purchased,
-    OU3: OU3Purchased,
-    OU4: OU4Purchased,
-    OU5: OU5Purchased,
-    OU6: OU6Purchased,
-    OU7: OU7Purchased,
-    OU8: OU8Purchased,
-    time: timePlayed,
-}
-const player = JSON.parse(savedPlayerData);
+let player = null;
+
 
 // FC Names
 const FCName = {
@@ -76,7 +57,7 @@ const FCName = {
     44: "My Name is Jonas 5e525%", 45: "xXXi_wud_nvrstøp_ÜXXx (Remix) 3.33e999%", 46: "Glacial Storm 5 5.55e5,555%", 47: "Soulless 1337 1.3e13,370%", 48: "Supernovae 1.25e125,125%",
     49: "Schmootopia 1e567,890%", 50: "Act 9: Egoless 9.99e999,999,999%", 51: "Slow Ride"
 };
-
+document.addEventListener("DOMContentLoaded", loadPlayer);
 // Reset Text Logic
 const resetText = (hardestFC) => {
     if ([0, 1, 2, 3, 4].includes(hardestFC)) {
@@ -139,9 +120,6 @@ function formatNumber(num) {
     }
 }
 
-
-
-localStorage.setItem("playerData", JSON.stringify(player));
 
 // Update Overtap Button Visibility and Text
 function updateOvertapButton() {
@@ -544,4 +522,3 @@ setInterval(function() {
 
 setInterval(savePlayer, 30000);
 
-document.addEventListener("DOMContentLoaded", loadPlayer);
