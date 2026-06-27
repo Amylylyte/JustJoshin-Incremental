@@ -257,4 +257,5 @@ setInterval(function() {
 
     // Update Overtap Button
     updateOvertapButton();
+    updateHeaderButtons();
 }, 25);
