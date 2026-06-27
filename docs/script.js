@@ -21,6 +21,7 @@ let notesForNextHardest = new Decimal(0);
 let clicks = 0; // Integer, no need for Decimal
 let deltaTime = 0;
 let pendingOvertap = new Decimal(0);
+let OvertapPoints = new Decimal(0);
 
 // FC Names
 const FCName = {
@@ -168,6 +169,7 @@ function Upgrade3() {
 function OvertapReset() {
     notesHit = new Decimal(0);
     hardestFC = 0;
+    OvertapPoints = Overtap.plus(pendingOvertap);
     pendingOvertap = new Decimal(0);
     updateOvertapButton();
 }
@@ -223,7 +225,7 @@ setInterval(function() {
         pendingOvertap = Decimal.pow(
             10,
             Decimal.div(Decimal.log10(notesHit.div(3.03e9)), 9)
-        );
+        ).floor();
         OvertapButton.disabled = false;
     } else if (hardestFC < 5) {
         pendingOvertap = new Decimal(0);
