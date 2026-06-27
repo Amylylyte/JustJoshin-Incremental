@@ -133,20 +133,48 @@ function updateHeaderButtons() {
 }
 
 function updateOvertapUpgradeButtons() {
-    const overtapUpgrade1Button = document.getElementById("OvertapButton");
-    const overtapButtonText = document.getElementById("OvertapButtonText");
+    const overtapUpgrade1Button = document.getElementById("OvertapUpgrade1");
+    const overtapUpgrade2Button = document.getElementById("OvertapUpgrade2");
+    const overtapUpgrade3Button = document.getElementById("OvertapUpgrade3");
+    const overtapUpgrade1Text = document.getElementById("OvertapUpgrade1Text");
+    const overtapUpgrade2Text = document.getElementById("OvertapUpgrade2Text");
+    const overtapUpgrade3Text = document.getElementById("OvertapUpgrade3Text");
 
-    if (hardestFC >= 3) {
-        overtapButton.style.display = "block";
-        overtapButton.disabled = false;
-        overtapButtonText.textContent =
-            resetText(hardestFC) +
-            " (" +
-            formatNumber(pendingOvertap) +
-            ")";
-    } else {
-        overtapButton.style.display = "none";
-        overtapButton.disabled = true;
+    if (OU1Purchased == 0) {
+        overtapUpgrade1Button.style.backgroundColor = "#70964c";
+        overtapUpgrade1Button.disabled = false;
+        overtapUpgrade1Text.textContent =
+            "(Price: 1 Overtap Point)";
+    }
+    if (OU2Purchased == 0) {
+        overtapUpgrade2Button.style.backgroundColor = "#70964c";
+        overtapUpgrade2Button.disabled = false;
+        overtapUpgrade2Text.textContent =
+            "(Price: 10 Overtap Points)";
+    }
+    if (OU3Purchased == 0) {
+        overtapUpgrade3Button.style.backgroundColor = "#70964c";
+        overtapUpgrade3Button.disabled = false;
+        overtapUpgrade3Text.textContent =
+            "(Price: 250 Overtap Points)";
+    }
+    if (OU1Purchased == 1) {
+        overtapUpgrade1Button.style.backgroundColor = "#95e347";
+        overtapUpgrade1Button.disabled = true;
+        overtapUpgrade1Text.textContent =
+            "Currently: x" + formatNumber(OU1Boost);
+    }
+    if (OU2Purchased == 2) {
+        overtapUpgrade2Button.style.backgroundColor = "#95e347";
+        overtapUpgrade2Button.disabled = true;
+        overtapUpgrade2Text.textContent =
+            "Currently: x" + formatNumber(OU2Boost);
+    }
+    if (OU3Purchased == 3) {
+        overtapUpgrade3Button.style.backgroundColor = "#95e347";
+        overtapUpgrade3Button.disabled = true;
+        overtapUpgrade3Text.textContent =
+            "";
     }
 }
 
