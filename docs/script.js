@@ -119,6 +119,23 @@ function updateOvertapButton() {
         overtapButton.disabled = true;
     }
 }
+function updateHeaderButtons() {
+    const headerButtons = document.getElementById("OvertapButton");
+    const overtapButtonText = document.getElementById("OvertapButtonText");
+
+    if (hardestFC >= 3) {
+        overtapButton.style.display = "block";
+        overtapButton.disabled = false;
+        overtapButtonText.textContent =
+            resetText(hardestFC) +
+            " (" +
+            formatNumber(pendingOvertap) +
+            ")";
+    } else {
+        overtapButton.style.display = "none";
+        overtapButton.disabled = true;
+    }
+}
 
 // Career Start
 function CareerStart() {
