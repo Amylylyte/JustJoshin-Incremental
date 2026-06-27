@@ -40,10 +40,11 @@ const resetText = (key) => {
     if ([0, 1, 2, 3, 4].includes(key)) {
         return "FC Soulless 3 to unlock Overtap";
     } else if (key >= 5) {
-        return "Josh realizes his speed is softlocked by his guitar, reset your progress to add <span style=<span id="pendingOvertap"></span> Overtap to Josh's guitar.";
+        return "Josh realizes his speed is softlocked by his guitar, reset your progress to add <span style="font-size: 125%; color: #BBGG44;"><span id="PendingOvertap"></span></span> Overtap to Josh's guitar.";
     }
 };
 let deltaTime = 0;
+let pendingOvertap = 0
 
 function CareerStart() {
   if (notesHit == 0) {
@@ -119,6 +120,9 @@ setInterval(function() {
   if (CareerStarted == 0) {
     hardestFC = 0
   }
+  if (hardestFC >= 5) {
+      pendingOvertap = Math.pow(10, (Math.log10(notesHit/3.03e9)/9))
+  }
 document.getElementById("NotesHit").innerHTML = formatNumber(notesHit);
 document.getElementById("NotesHitPerSecond").innerHTML = formatNumber(notesHitPerSecond);
 document.getElementById("FCName").textContent = FCName[hardestFC];
@@ -128,4 +132,5 @@ document.getElementById("U1Price").innerHTML = formatNumber(U1PRICE_);
 document.getElementById("U2Price").innerHTML = formatNumber(U2PRICE_);
 document.getElementById("U3Price").innerHTML = formatNumber(U3PRICE_);
 document.getElementById("ResetText").textContent = resetText[hardestFC];
+document.getElementById("PendingOvertap").innerHTML = formatNumber(pendingOvertap);
 }, 25)
