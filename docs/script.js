@@ -264,13 +264,13 @@ function updateOvertapUpgradeButtons() {
     if (OU7Purchased == 1) {
         overtapUpgrade7Button.style.backgroundColor = "#95e347";
         overtapUpgrade7Text.textContent =
-        "Currently: x" + formatNumber(OU5Boost);
+        "Currently: x" + formatNumber(OU7Boost);
         OU7Boost = new Decimal(1.05).pow((OvertapsPerformed.plus(1)).log10());
     }
     if (OU8Purchased == 1) {
         overtapUpgrade8Button.style.backgroundColor = "#95e347";
         overtapUpgrade8Text.textContent =
-        "Currently: x" + formatNumber(OU5Boost);
+        "Currently: x" + formatNumber(OU8Boost);
         OU8Boost = new Decimal(1.05).pow((U1BOOST_.plus(1)).log10());
     }
 }
