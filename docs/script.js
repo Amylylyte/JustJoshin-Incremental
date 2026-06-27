@@ -368,6 +368,7 @@ function OvertapReset() {
     U3BOUGHT_ = 0;
     hardestFC = 0;
     clicks = 1;
+    CareerStarted = 0;
     notesHitPerSecond = new Decimal(1);
     notesHit = new Decimal(0);
     OvertapPoints = OvertapPoints.plus(pendingOvertap);
@@ -454,6 +455,10 @@ setInterval(function() {
     
 
     OvertapsBoost = (OvertapsPerformed.plus(1)).pow(2)
+
+    if (OvertapsPerformed >= 10) {
+        CareerStarted = 1;
+    }
 
     // Update UI
     document.getElementById("NotesHit").textContent = formatNumber(notesHit);
