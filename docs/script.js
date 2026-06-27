@@ -1,6 +1,7 @@
+// Game State
 let notesHit = 0;
 let notesHitPerSecond = 0;
-let hardestFCBoost = 0;  
+let hardestFCBoost = 0;
 let CareerStarted = 0;
 let U1BOOST_ = 1;
 let U1PRICE_ = 25;
@@ -18,6 +19,10 @@ let lastTime = 0;
 let hardestFC = 0;
 let notesForNextHardest = 0;
 let clicks = 0;
+let deltaTime = 0;
+let pendingOvertap = 0;
+
+// FC Names
 const FCName = {
     0: "None",
     1: "Stricken",
@@ -34,112 +39,138 @@ const FCName = {
     12: "Soulless 6 105%",
     13: "Prevail 115%",
     14: "Supernovae",
-    15: "Supernovae 125%",
+    15: "Supernovae 125",
 };
+
+// Reset Text Logic
 const resetText = (hardestFC) => {
     if ([0, 1, 2, 3, 4].includes(hardestFC)) {
         return "FC Soulless 3 to unlock Overtap";
     } else if (hardestFC >= 5) {
         return "Josh realizes his speed is softlocked by his guitar, reset your progress to add Overtap to Josh's guitar.";
     }
+    return "No reset message available.";
 };
 
-let deltaTime = 0;
-let pendingOvertap = 0
-
-function CareerStart() {
-  if (notesHit == 0) {
-    CareerStarted = 1;
-  }
-    clicks += 1;
-}
-
+// Format Numbers
 function formatNumber(num) {
     if (num >= 1000000000) {
         return num.toExponential(2).replace("e+", "e");
-    }
-    else if (num >= 1000) {
+    } else if (num >= 1000) {
         return Math.floor(num).toLocaleString();
     } else if (Number.isInteger(num)) {
-        return num.toString(); // No decimals for integers
+        return num.toString();
     } else {
-        return num.toFixed(2); // Up to 2 decimals, remove trailing zeros
+        return num.toFixed(2).replace(/\.?0+$/, '');
     }
 }
 
-function animate(currentTime) {
-    deltaTime = (currentTime - lastTime) / 1000; // Convert to seconds
-    lastTime = currentTime;
+// Update Overtap Button Visibility and Text
+function updateOvertapButton() {
+    const overtapButton = document.getElementById("OvertapButton");
 
+    if (hardestFC >= 5) {
+        overtapButton.style.display = "block";
+        document.getElementById("ResetText").textContent = resetText(hardestFC);
+        document.getElementById("PendingOvertap").textContent = formatNumber(pendingOvertap);
+    } else {
+        overtapButton.style.display = "none";
+    }
+}
+
+// Career Start
+function CareerStart() {
+    if (notesHit === 0) {
+        CareerStarted = 1;
+    }
+    clicks += 1;
+}
+
+// Upgrades
+function Upgrade1() {
+    if (notesHit >= U1PRICE_) {
+        notesHit -= U1PRICE_;
+        U1BOUGHT_ += 1;
+        U1PRICE_ = Math.floor(U1PRICE_ * 1.25 * Math.pow(1.01, U1BOUGHT_));
+        U1BOOST_ = Math.pow(U1POWER_, U1BOUGHT_);
+    }
+}
+
+function Upgrade2() {
+    if (notesHit >= U2PRICE_ && hardestFC >= 1) {
+        notesHit -= U2PRICE_;
+        U2BOUGHT_ += 1;
+        U2PRICE_ = Math.floor(U2PRICE_ * 10 * Math.pow(1.02, U2BOUGHT_));
+        U2BOOST_ = Math.pow(U2POWER_, U2BOUGHT_);
+    }
+}
+
+function Upgrade3() {
+    if (notesHit >= U3PRICE_ && hardestFC >= 3) {
+        notesHit -= U3PRICE_;
+        U3BOUGHT_ += 1;
+        U3PRICE_ = Math.floor(U3PRICE_ * 5 * Math.pow(1.15, U3BOUGHT_));
+        U3BOOST_ = Math.pow(U3POWER_, U3BOUGHT_);
+    }
+}
+
+// Overtap Reset
+function OvertapReset() {
+    notesHit = 0;
+    hardestFC = 0;
+    pendingOvertap = 0;
+    updateOvertapButton();
+}
+
+// Animation Loop
+function animate(currentTime) {
+    deltaTime = (currentTime - lastTime) / 1000;
+    lastTime = currentTime;
     requestAnimationFrame(animate);
 }
 
 requestAnimationFrame(animate);
 
-function Upgrade1() {
-  if (notesHit >= U1PRICE_) {
-      notesHit -= U1PRICE_;
-    }
-
-    U1PRICE_ *= 1.25 * Math.pow(1.01, U1BOUGHT_);
-    U1BOUGHT_ += 1;
-
-  }
-
-function Upgrade2() {
-  if (notesHit >= U2PRICE_ && hardestFC >= 1) {
-      notesHit -= U2PRICE_;
-    U2BOUGHT_ += 1;
-    U2PRICE_ *= 10 * Math.pow(1.02, U2BOUGHT_);
-  }
-}
-
-
-function Upgrade3() {
-  if (notesHit >= U3PRICE_ && hardestFC >= 3) {
-      notesHit -= U3PRICE_;
-    U3PRICE_ *= 5 * Math.pow(1.15, U3BOUGHT_);
-    U3BOUGHT_ += 1;
-  }
-}
-function updateButtonVisibility() {
-    if (notesHit >= 1e6) {
-        document.getElementById("OvertapButton").style.display = "block";
-    }
-}
-
+// Main Game Loop
 setInterval(function() {
+    if (CareerStarted === 1) {
+        notesHitPerSecond = 1 * hardestFCBoost * U1BOOST_ * U2BOOST_ * Math.pow(Math.log10(clicks + 9), U3BOOST_);
+    }
 
-  if (CareerStarted == 1) {
-    notesHitPerSecond = 1 * hardestFCBoost * U1BOOST_ * U2BOOST_ *  Math.pow(Math.log10(clicks + 9), U3BOOST_)
-  }
-  
     notesHit += notesHitPerSecond * deltaTime;
-    if (notesHit > Math.floor(Math.pow(1000, 1 * Math.pow(4/2.999, hardestFC)))) {
+
+    // Check for new FC
+    const fcThreshold = Math.floor(Math.pow(1000, 1 * Math.pow(4/2.999, hardestFC)));
+    if (notesHit > fcThreshold) {
         hardestFC += 1;
     }
-  hardestFCBoost = Math.pow(1.5, hardestFC)
-  notesForNextHardest = Math.floor(Math.pow(1000, 1 * Math.pow(4/3, hardestFC))) ;
-  U1BOOST_ = Math.pow(U1POWER_, U1BOUGHT_)
-  U2BOOST_ = Math.pow(U2POWER_, U2BOUGHT_)
-  U3BOOST_ = Math.pow(U3POWER_, U3BOUGHT_)
-  if (CareerStarted == 0) {
-    hardestFC = 0
-  }
-  if (hardestFC >= 5) {
-      pendingOvertap = Math.pow(10, (Math.log10(notesHit/3.03e9)/9))
-  }
-document.getElementById("NotesHit").innerHTML = formatNumber(notesHit);
-document.getElementById("NotesHitPerSecond").innerHTML = formatNumber(notesHitPerSecond);
-document.getElementById("FCName").textContent = FCName[hardestFC];
-document.getElementById("NotesForNextFC").innerHTML = formatNumber(notesForNextHardest);
-document.getElementById("FCBoost").innerHTML = formatNumber(hardestFCBoost);
-document.getElementById("U1Price").innerHTML = formatNumber(U1PRICE_);
-document.getElementById("U2Price").innerHTML = formatNumber(U2PRICE_);
-document.getElementById("U3Price").innerHTML = formatNumber(U3PRICE_);
-function updateOvertapButtonText(resetValue, pendingValue) {
-    document.getElementById("ResetText").textContent = resetValue;
-    document.getElementById("PendingOvertap").textContent = pendingValue;
-}
-    updateButtonVisibility();
-}, 25)
+
+    // Update FC-related values
+    hardestFCBoost = Math.pow(1.5, hardestFC);
+    notesForNextHardest = Math.floor(Math.pow(1000, 1 * Math.pow(4/3, hardestFC)));
+    U1BOOST_ = Math.pow(U1POWER_, U1BOUGHT_);
+    U2BOOST_ = Math.pow(U2POWER_, U2BOUGHT_);
+    U3BOOST_ = Math.pow(U3POWER_, U3BOUGHT_);
+
+    if (CareerStarted === 0) {
+        hardestFC = 0;
+    }
+
+    // Calculate pendingOvertap
+    if (hardestFC >= 5) {
+        pendingOvertap = Math.pow(10, (Math.log10(notesHit/3.03e9)/9));
+    }
+
+    // Update UI
+    document.getElementById("NotesHit").textContent = formatNumber(notesHit);
+    document.getElementById("NotesHitPerSecond").textContent = formatNumber(notesHitPerSecond);
+    document.getElementById("FCName").textContent = FCName[hardestFC];
+    document.getElementById("NotesForNextFC").textContent = formatNumber(notesForNextHardest);
+    document.getElementById("FCBoost").textContent = formatNumber(hardestFCBoost);
+    document.getElementById("U1Price").textContent = formatNumber(U1PRICE_);
+    document.getElementById("U2Price").textContent = formatNumber(U2PRICE_);
+    document.getElementById("U3Price").textContent = formatNumber(U3PRICE_);
+
+    // Update Overtap Button
+    updateOvertapButton();
+}, 25);
