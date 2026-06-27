@@ -344,7 +344,7 @@ function OvertapReset() {
     notesHit = new Decimal(0);
     OvertapPoints = OvertapPoints.plus(pendingOvertap);
     pendingOvertap = new Decimal(0);
-    OvertapsPerformed = OvertapsPerformed.plus((new Decimal(1).times(OU8Boost));
+    OvertapsPerformed = OvertapsPerformed.plus((new Decimal(1).times(OU8Boost)));
     updateOvertapButton();
 }
 
