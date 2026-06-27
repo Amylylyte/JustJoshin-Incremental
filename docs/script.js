@@ -47,37 +47,55 @@ const resetText = (hardestFC) => {
 // Format Numbers
 function formatNumber(num) {
     if (num instanceof Decimal) {
-        if (num.greaterThanOrEqualTo(1e9)) {
-            // Split the number into coefficient and exponent
-            const coefficient = num.div(Decimal.pow(10, num.e));
-            const formattedCoefficient = coefficient.toNumber().toLocaleString();
-            const exponent = num.e;
+        // Handle extremely large numbers (e.g., 1e3027678)
+        if (num.e >= 1000) {
+            // Format the mantissa (e.g., "1.234")
+            const mantissa = num.mantissa.toLocaleString(undefined, {
+                maximumFractionDigits: 3,
+                minimumFractionDigits: 0,
+            });
+
+            // Format the exponent with commas (e.g., "3,027,678")
+            const formattedExponent = num.e.toLocaleString();
 
             // Combine them
-            return `${formattedCoefficient}e${exponent}`;
-        } else if (num.greaterThanOrEqualTo(1000)) {
+            return `${mantissa}e${formattedExponent}`;
+        }
+        // Handle numbers >= 1e9
+        else if (num.greaterThanOrEqualTo(1e9)) {
+            const coefficient = num.div(Decimal.pow(10, num.e));
+            const formattedCoefficient = coefficient.toNumber().toLocaleString();
+            return `${formattedCoefficient}e${num.e}`;
+        }
+        // Handle numbers >= 1000
+        else if (num.greaterThanOrEqualTo(1000)) {
             return num.toNumber().toLocaleString();
-        } else if (num.eq(num.floor())) {
+        }
+        // Handle integers
+        else if (num.eq(num.floor())) {
             return num.toString();
-        } else {
-            return num.toNumber().toFixed(2).replace();
+        }
+        // Handle decimals
+        else {
+            return num.toNumber().toFixed(2).replace(/\.?0+$/, '');
         }
     } else {
         // Fallback for non-Decimal numbers
         if (num >= 1e9) {
             const parts = num.toExponential(2).split('e');
             const coefficient = parseFloat(parts).toLocaleString();
-            const exponent = parts;
+            const exponent = parseInt(parts, 10).toLocaleString();
             return `${coefficient}e${exponent}`;
         } else if (num >= 1000) {
             return num.toLocaleString();
         } else if (Number.isInteger(num)) {
             return num.toString();
         } else {
-            return num.toFixed(2).replace();
+            return num.toFixed(2).replace(/\.?0+$/, '');
         }
     }
 }
+
 
 
 
