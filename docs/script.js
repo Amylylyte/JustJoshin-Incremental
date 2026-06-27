@@ -180,7 +180,7 @@ function Upgrade3() {
 function OvertapReset() {
     notesHit = new Decimal(0);
     hardestFC = 0;
-    OvertapPoints = Overtap.plus(pendingOvertap);
+    OvertapPoints = OvertapPoints.plus(pendingOvertap);
     pendingOvertap = new Decimal(0);
     OvertapsPerformed = OvertapsPerformed.plus(1);
     updateOvertapButton();
