@@ -50,11 +50,11 @@ function formatNumber(num) {
         return num.toExponential(2).replace("e+", "e");
     }
     else if (num >= 1000) {
-        return num.toLocaleString(); // Adds commas for thousands
+        return Math.floor(num).toLocaleString();
     } else if (Number.isInteger(num)) {
         return num.toString(); // No decimals for integers
     } else {
-        return num.toFixed(2); // Up to 3 decimals, remove trailing zeros
+        return num.toFixed(2); // Up to 2 decimals, remove trailing zeros
     }
 }
 
