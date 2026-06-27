@@ -40,7 +40,7 @@ const resetText = (key) => {
     if ([0, 1, 2, 3, 4].includes(key)) {
         return "FC Soulless 3 to unlock Overtap";
     } else if (key >= 5) {
-        return "Josh realizes his speed is softlocked by his guitar, reset your progress to add <span style="font-size: 125%; color: #BBGG44;"><span id="PendingOvertap"></span></span> Overtap to Josh's guitar.";
+        return "Josh realizes his speed is softlocked by his guitar, reset your progress to add Overtap to Josh's guitar.";
     }
 };
 let deltaTime = 0;
