@@ -145,11 +145,6 @@ function Upgrade1() {
     if (notesHit.greaterThanOrEqualTo(U1PRICE_)) {
         notesHit = notesHit.minus(U1PRICE_);
         U1BOUGHT_ += 1;
-        U1PRICE_ = U1PRICE_
-            .times(1.25)
-            .times(Decimal.pow(1.01, U1BOUGHT_))
-            .floor();
-        U1BOOST_ = Decimal.pow(U1POWER_, U1BOUGHT_);
     }
 }
 
@@ -157,11 +152,6 @@ function Upgrade2() {
     if (notesHit.greaterThanOrEqualTo(U2PRICE_) && hardestFC >= 1) {
         notesHit = notesHit.minus(U2PRICE_);
         U2BOUGHT_ += 1;
-        U2PRICE_ = U2PRICE_
-            .times(10)
-            .times(Decimal.pow(1.02, U2BOUGHT_))
-            .floor();
-        U2BOOST_ = Decimal.pow(U2POWER_, U2BOUGHT_);
     }
 }
 
@@ -169,11 +159,7 @@ function Upgrade3() {
     if (notesHit.greaterThanOrEqualTo(U3PRICE_) && hardestFC >= 3) {
         notesHit = notesHit.minus(U3PRICE_);
         U3BOUGHT_ += 1;
-        U3PRICE_ = U3PRICE_
-            .times(5)
-            .times(Decimal.pow(1.15, U3BOUGHT_))
-            .floor();
-        U3BOOST_ = Decimal.pow(U3POWER_, U3BOUGHT_);
+        
     }
 }
 
@@ -234,6 +220,18 @@ setInterval(function() {
     U1BOOST_ = Decimal.pow(U1POWER_, U1BOUGHT_);
     U2BOOST_ = Decimal.pow(U2POWER_, U2BOUGHT_);
     U3BOOST_ = Decimal.pow(U3POWER_, U3BOUGHT_);
+    U2PRICE_ = new Decimal(25)
+            .times(Decimal.pow(1.2, U1BOUGHT_))
+            .pow(Decimal.pow(1.02, U1BOUGHT_))
+            .floor();
+    U2PRICE_ = new Decimal(750)
+            .times(Decimal.pow(8, U2BOUGHT_))
+            .pow(Decimal.pow(1.05, U2BOUGHT_))
+            .floor();
+    U3PRICE_ = new Decimal(1e30)
+            .times(Decimal.pow(5, U3BOUGHT_))
+            .pow(Decimal.pow(1.05, U3BOUGHT_))
+            .floor();
 
     if (CareerStarted === 0) {
         hardestFC = 0;
@@ -250,6 +248,7 @@ setInterval(function() {
         pendingOvertap = new Decimal(0);
         OvertapButton.disabled = true;
     }
+    
 
     OvertapsBoost = (OvertapsPerformed.plus(1)).pow(2)
 
