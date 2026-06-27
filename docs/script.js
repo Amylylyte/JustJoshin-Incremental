@@ -153,7 +153,7 @@ setInterval(function() {
 
     // Update FC-related values
     hardestFCBoost = Math.pow(1.5, hardestFC);
-    notesForNextHardest = Math.floor(Math.pow(1000, 1 * Math.pow(4/3, hardestFC)));
+    notesForNextHardest = Math.floor(Math.pow(1000, 1 * Math.pow(4/2.999, hardestFC)));
     U1BOOST_ = Math.pow(U1POWER_, U1BOUGHT_);
     U2BOOST_ = Math.pow(U2POWER_, U2BOUGHT_);
     U3BOOST_ = Math.pow(U3POWER_, U3BOUGHT_);
