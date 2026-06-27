@@ -222,10 +222,10 @@ setInterval(function() {
     U3BOOST_ = Decimal.pow(U3POWER_, U3BOUGHT_);
     U1PRICE_ = new Decimal(25)
             .times(Decimal.pow(1.2, U1BOUGHT_))
-            .pow(Decimal.pow(1.02, U1BOUGHT_))
+            .pow(Decimal.pow(1.01, U1BOUGHT_))
             .floor();
     U2PRICE_ = new Decimal(750)
-            .times(Decimal.pow(8, U2BOUGHT_))
+            .times(Decimal.pow(5, U2BOUGHT_))
             .pow(Decimal.pow(1.05, U2BOUGHT_))
             .floor();
     U3PRICE_ = new Decimal(1e30)
