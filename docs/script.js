@@ -30,6 +30,7 @@ let OU3Purchased = 0;
 let OU1Boost = new Decimal(1);
 let OU2Boost = new Decimal(1);
 let OU3Boost = new Decimal(1);
+let timePlayed = new Decimal(0);
 
 // FC Names
 const FCName = {
@@ -275,6 +276,7 @@ setInterval(function() {
             .times(OvertapsBoost);
             notesHit = notesHit.plus(notesHitPerSecond.times(deltaTime));
     }
+    timePlayed = timePlayed.plus(1.times(deltaTime));
 
 
     // Check for new FC
