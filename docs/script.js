@@ -46,19 +46,39 @@ const resetText = (hardestFC) => {
 
 // Format Numbers
 function formatNumber(num) {
-    // Convert Decimal to number if it's a Decimal
-    const numericValue = num instanceof Decimal ? num.toNumber() : num;
+    if (num instanceof Decimal) {
+        if (num.greaterThanOrEqualTo(1e9)) {
+            // Split the number into coefficient and exponent
+            const coefficient = num.div(Decimal.pow(10, num.e));
+            const formattedCoefficient = coefficient.toNumber().toLocaleString();
+            const exponent = num.e;
 
-    if (numericValue >= 1e9) {
-        return num.toExponential(2).replace("e+", "e");
-    } else if (numericValue >= 1000) {
-        return numericValue.toLocaleString();
-    } else if (Number.isInteger(numericValue)) {
-        return numericValue.toString();
+            // Combine them
+            return `${formattedCoefficient}e${exponent}`;
+        } else if (num.greaterThanOrEqualTo(1000)) {
+            return num.toNumber().toLocaleString();
+        } else if (num.isInteger()) {
+            return num.toString();
+        } else {
+            return num.toNumber().toFixed(2);
+        }
     } else {
-        return numericValue.toFixed(2).replace(/\.?0+$/, '');
+        // Fallback for non-Decimal numbers
+        if (num >= 1e9) {
+            const parts = num.toExponential(2).split('e');
+            const coefficient = parseFloat(parts).toLocaleString();
+            const exponent = parts;
+            return `${coefficient}e${exponent}`;
+        } else if (num >= 1000) {
+            return num.toLocaleString();
+        } else if (Number.isInteger(num)) {
+            return num.toString();
+        } else {
+            return num.toFixed(2));
+        }
     }
 }
+
 
 // Update Overtap Button Visibility and Text
 function updateOvertapButton() {
