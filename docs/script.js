@@ -481,14 +481,4 @@ setInterval(function() {
     updateOvertapButton();
     updateOvertapUpgradeButtons();
     updateHeaderButtons();
-}, 25);
-
-document.addEventListener("visibilitychange", () => {
-  if (document.hidden) {
-    // Tab is inactive: pause non-essential features (e.g., animations, AI)
-    pauseGame();
-  } else {
-    // Tab is active: resume
-    resumeGame();
-  }
-});
+}, 60);
