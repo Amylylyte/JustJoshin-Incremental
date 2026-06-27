@@ -154,10 +154,7 @@ setInterval(function() {
     notesHit = notesHit.plus(notesHitPerSecond.times(deltaTime));
 
     // Check for new FC
-    const fcThreshold = new Decimal(1000)
-        .pow(Decimal.pow(1.335785623, hardestFC))
-        .floor();
-    if (notesHit.greaterThan(fcThreshold)) {
+    if (notesHit.greaterThan(notesForNextHardest)) {
         hardestFC += 1;
     }
 
