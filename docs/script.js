@@ -36,10 +36,10 @@ const FCName = {
     14: "Supernovae",
     15: "Supernovae 125%",
 };
-const resetText = (key) => {
-    if ([0, 1, 2, 3, 4].includes(key)) {
+const resetText = (hardestFC) => {
+    if ([0, 1, 2, 3, 4].includes(hardestFC)) {
         return "FC Soulless 3 to unlock Overtap";
-    } else if (key >= 5) {
+    } else if (hardestFC >= 5) {
         return "Josh realizes his speed is softlocked by his guitar, reset your progress to add Overtap to Josh's guitar.";
     }
 };
