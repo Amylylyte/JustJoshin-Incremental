@@ -174,54 +174,54 @@ function updateOvertapUpgradeButtons() {
     const overtapUpgrade8Text = document.getElementById("OvertapUpgrade8Text");
 
     if (OU1Purchased == 0) {
-        overtapUpgrade1Button.style.backgroundColor = "#70964c";
+        overtapUpgrade1Button.style.backgroundColor = "#cccccc";
         overtapUpgrade1Button.disabled = false;
         overtapUpgrade1Text.textContent =
             "(Price: 1 Overtap Point)";
         OU1Boost = new Decimal(1);
     }
     if (OU2Purchased == 0) {
-        overtapUpgrade2Button.style.backgroundColor = "#70964c";
+        overtapUpgrade2Button.style.backgroundColor = "#cccccc";
         overtapUpgrade2Button.disabled = false;
         overtapUpgrade2Text.textContent =
             "(Price: 10 Overtap Points)";
         OU2Boost = new Decimal(1);
     }
     if (OU3Purchased == 0) {
-        overtapUpgrade3Button.style.backgroundColor = "#70964c";
+        overtapUpgrade3Button.style.backgroundColor = "#cccccc";
         overtapUpgrade3Button.disabled = false;
         overtapUpgrade3Text.textContent =
             "(Price: 250 Overtap Points)";
         OU3Boost = new Decimal(1);
     }
     if (OU4Purchased == 0) {
-        overtapUpgrade4Button.style.backgroundColor = "#70964c";
+        overtapUpgrade4Button.style.backgroundColor = "#cccccc";
         overtapUpgrade4Button.disabled = false;
         overtapUpgrade4Text.textContent =
             "(Price: 25 Overtap Points)";
     }
     if (OU5Purchased == 0) {
-        overtapUpgrade5Button.style.backgroundColor = "#70964c";
+        overtapUpgrade5Button.style.backgroundColor = "#cccccc";
         overtapUpgrade5Button.disabled = false;
         overtapUpgrade5Text.textContent =
             "(Price: 250 Overtap Points)";
         OU5Boost = new Decimal(1);
     }
     if (OU6Purchased == 0) {
-        overtapUpgrade6Button.style.backgroundColor = "#70964c";
+        overtapUpgrade6Button.style.backgroundColor = "#cccccc";
         overtapUpgrade6Button.disabled = false;
         overtapUpgrade6Text.textContent =
             "(Price: 6,250 Overtap Points)";
     }
     if (OU7Purchased == 0) {
-        overtapUpgrade7Button.style.backgroundColor = "#70964c";
+        overtapUpgrade7Button.style.backgroundColor = "#cccccc";
         overtapUpgrade7Button.disabled = false;
         overtapUpgrade7Text.textContent =
             "(Price: 100,000 Overtap Points)";
         OU7Boost = new Decimal(1);
     }
     if (OU8Purchased == 0) {
-        overtapUpgrade8Button.style.backgroundColor = "#70964c";
+        overtapUpgrade8Button.style.backgroundColor = "#cccccc";
         overtapUpgrade8Button.disabled = false;
         overtapUpgrade8Text.textContent =
             "(Price: 1e10 Overtap Points)";
@@ -344,7 +344,7 @@ function OvertapReset() {
     notesHit = new Decimal(0);
     OvertapPoints = OvertapPoints.plus(pendingOvertap);
     pendingOvertap = new Decimal(0);
-    OvertapsPerformed = OvertapsPerformed.plus(1);
+    OvertapsPerformed = OvertapsPerformed.plus((new Decimal(1).times(OU8Boost));
     updateOvertapButton();
 }
 
@@ -379,7 +379,7 @@ setInterval(function() {
     }
 
     // Update FC-related values
-    hardestFCBoost = Decimal.pow(1.5, hardestFC);
+    hardestFCBoost = Decimal.pow(1.5, hardestFC).pow(OU5Boost);
     if (hardestFC < 17) {
     notesForNextHardest = new Decimal(1000)
         .pow(Decimal.pow(1.335785623, hardestFC || 0))
@@ -390,7 +390,7 @@ setInterval(function() {
         .floor();
 }
         
-    U1BOOST_ = Decimal.pow(U1POWER_, U1BOUGHT_);
+    U1BOOST_ = Decimal.pow(U1POWER_.times(OU7Boost), U1BOUGHT_);
     U2BOOST_ = Decimal.pow(U2POWER_, U2BOUGHT_);
     U3BOOST_ = Decimal.pow(U3POWER_, U3BOUGHT_);
     U1PRICE_ = new Decimal(25)
