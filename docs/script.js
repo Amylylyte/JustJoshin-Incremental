@@ -276,7 +276,7 @@ setInterval(function() {
             .times(OvertapsBoost);
             notesHit = notesHit.plus(notesHitPerSecond.times(deltaTime));
     }
-    timePlayed = timePlayed.plus(1.times(deltaTime));
+    timePlayed = timePlayed.plus(new Decimal(1).times(deltaTime));
 
 
     // Check for new FC
