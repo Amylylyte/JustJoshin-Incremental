@@ -276,6 +276,13 @@ function updateOvertapUpgradeButtons() {
     }
 }
 
+function gameLoop(currentTime) {
+    if (!gameActive) return;
+
+    const deltaTime = currentTime - lastTime;
+    lastTime = currentTime;
+}
+
 // Career Start
 function CareerStart() {
     if (notesHit.equals(0)) {  // Use .equals() for Decimal objects
