@@ -36,6 +36,10 @@ const FCName = {
     14: "Supernovae",
     15: "Supernovae 125%",
 };
+const resetText = {
+    [0, 1, 2, 3, 4]: "FC Soulless 3 to unlock Overtap",
+    5: "Josh realizes his speed is softlocked by his guitar, reset your progress to add Overtap to Josh's guitar."
+}
 let deltaTime = 0;
 
 function CareerStart() {
@@ -120,4 +124,5 @@ document.getElementById("FCBoost").innerHTML = formatNumber(hardestFCBoost);
 document.getElementById("U1Price").innerHTML = formatNumber(U1PRICE_);
 document.getElementById("U2Price").innerHTML = formatNumber(U2PRICE_);
 document.getElementById("U3Price").innerHTML = formatNumber(U3PRICE_);
+document.getElementById("ResetText").textContent = resetText[hardestFC];
 }, 25)
