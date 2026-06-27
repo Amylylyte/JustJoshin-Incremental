@@ -237,7 +237,7 @@ function updateOvertapUpgradeButtons() {
         overtapUpgrade2Button.style.backgroundColor = "#95e347";
         overtapUpgrade2Text.textContent =
             "Currently: x" + formatNumber(OU2Boost);
-        OU2Boost = new Decimal(1).times(new Decimal(1.1).pow(((notesHit).plus(1)).log10()));
+        OU2Boost = new Decimal(1).times(new Decimal(1.145).pow(((notesHit).plus(1)).log10()));
     }
     if (OU3Purchased == 1) {
         overtapUpgrade3Button.style.backgroundColor = "#95e347";
@@ -432,8 +432,8 @@ setInterval(function() {
             .pow(OU3Boost)
             .floor();
     U3PRICE_ = new Decimal(1e30)
-            .times(Decimal.pow(5, U3BOUGHT_))
-            .pow(Decimal.pow(new Decimal(1).plus((new Decimal(0.05).times(OU3Boost))), U3BOUGHT_))
+            .times(Decimal.pow(4, U3BOUGHT_))
+            .pow(Decimal.pow(new Decimal(1).plus((new Decimal(0.03).times(OU3Boost))), U3BOUGHT_))
             .floor();
 
     if (CareerStarted === 0) {
@@ -472,7 +472,6 @@ setInterval(function() {
     if (OU4Purchased == 1) {
         Upgrade1();
         Upgrade2();
-        Upgrade3();
     }
     updateOvertapButton();
     updateOvertapUpgradeButtons();
