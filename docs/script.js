@@ -540,6 +540,8 @@ setInterval(function() {
     updateOvertapButton();
     updateOvertapUpgradeButtons();
     updateHeaderButtons();
-}, 60);
+}, 50);
+
+setInterval(savePlayer, 30000);
 
 document.addEventListener("DOMContentLoaded", loadPlayer);
