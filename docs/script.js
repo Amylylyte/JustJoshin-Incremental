@@ -413,6 +413,12 @@ function savePlayer() {
       localStorage.setItem("playerData", JSON.stringify(player));
     }
 
+function loadPlayer() {
+      const savedPlayerData = localStorage.getItem("playerData");
+      if (savedPlayerData) {
+        const player = JSON.parse(savedPlayerData);
+      }
+    }
 
 // Overtap Reset
 function OvertapReset() {
