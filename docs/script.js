@@ -40,7 +40,6 @@ let OU7Boost = new Decimal(1);
 let OU8Boost = new Decimal(1);
 let timePlayed = new Decimal(0); 
 const savedPlayerData = localStorage.getItem("playerData");
-const player = JSON.parse(savedPlayerData);
 
 // saving
 
