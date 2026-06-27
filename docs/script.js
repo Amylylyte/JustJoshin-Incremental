@@ -138,4 +138,5 @@ document.getElementById("U2Price").innerHTML = formatNumber(U2PRICE_);
 document.getElementById("U3Price").innerHTML = formatNumber(U3PRICE_);
 document.getElementById("ResetText").textContent = resetText[hardestFC];
 document.getElementById("PendingOvertap").innerHTML = formatNumber(pendingOvertap);
+    updateButtonVisibility();
 }, 25)
