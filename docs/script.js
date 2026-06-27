@@ -26,12 +26,12 @@ let pendingOvertap = new Decimal(0);
 const FCName = {
     0: "None", 1: "Stricken", 2: "Cliffs of Dover", 3: "One", 4: "TTFAF", 5: "Soulless 3", 6: "Wiiolation", 7: "DNA Uber Solo 9", 8: "Minds of The Mad 125%",
     9: "Dashed Hopes III", 10: "Prevail", 11: "Tramatic Carnival 115%", 12: "Soulless 6 105%", 13: "Prevail 115%", 14: "Supernovae", 15: "Spacerace 90%",
-    16: "Supernovae 125%", 17: "Spacerace 100%", 18: "Schmootopia", 19: "Cosmic Embassy", 20: "Hypnovia", 21: "Uber Solo", 22: "Cosmic Embassy 125%", 23: "Egoless",
-    24: "Egoless 125%", 25: "Uber Solo 2", 26: "Uber Solo 2 125%", 27: "Uber Solo 2 150%", 28: "Fully Soulless 1,000%", 29: "Egoless 1,000%", 30: "Uber Solo 2 1,000%",
-    31: "Stricken 100,000%", 32: "One 1,000,000%", 33: "TTFAF 2,000,000%", 34: "Prevail 5,000,000%", 35: "Soulless 6 6,666,660%", 36: "Supernovae 12,125,125%",
-    37: "Cosmic Embassy 43,765,980%", 38: "Hypnovia 123,456,780%", 39: "Uber Solo 1e9%", 40: "Fully Soulless 1.12e12%", 41: "Egoless 9.99e15%", 42: "Uber Solo 2 2.22e22%",
-    43: "My Name is Jonas 5e25%", 44: "xXXi_wud_nvrstøp_ÜXXx (Remix) 3.33e33%", 45: "Glacial Storm 5 5.55e55%", 46: "Soulless 1337 1e100%", 47: "Supernovae 1.25e125%",
-    48: "Schmootopia 1e500%", 49: "Act 9: Egoless 9.99e999%", 50: "Slow Ride 9.99e99,999%"
+    16: "Spacerace 95%", 17: "Supernovae 125%", 18: "Spacerace 100%", 19: "Schmootopia", 20: "Cosmic Embassy", 21: "Hypnovia", 22: "Uber Solo", 23: "Cosmic Embassy 125%", 24: "Egoless",
+    25: "Egoless 125%", 26: "Uber Solo 2", 27: "Uber Solo 2 125%", 28: "Uber Solo 2 150%", 29: "Fully Soulless 1,000%", 30: "Egoless 1,000%", 31: "Uber Solo 2 1,000%",
+    32: "Stricken 100,000%", 33: "One 1,000,000%", 34: "TTFAF 2,000,000%", 35: "Prevail 5,000,000%", 36: "Soulless 6 6,666,660%", 37: "Supernovae 12,125,125%",
+    38: "Cosmic Embassy 43,765,980%", 39: "Hypnovia 123,456,780%", 40: "Uber Solo 1e9%", 41: "Fully Soulless 1.12e12%", 42: "Egoless 9.99e15%", 43: "Uber Solo 2 2.22e22%",
+    44: "My Name is Jonas 5e25%", 45: "xXXi_wud_nvrstøp_ÜXXx (Remix) 3.33e33%", 46: "Glacial Storm 5 5.55e55%", 47: "Soulless 1337 1e100%", 48: "Supernovae 1.25e125%",
+    49: "Schmootopia 1e500%", 50: "Act 9: Egoless 9.99e999%", 51: "Slow Ride 9.99e99,999%"
 };
 
 // Reset Text Logic
