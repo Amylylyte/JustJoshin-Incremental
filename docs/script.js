@@ -182,6 +182,7 @@ function OvertapReset() {
     hardestFC = 0;
     OvertapPoints = Overtap.plus(pendingOvertap);
     pendingOvertap = new Decimal(0);
+    OvertapsPerformed = OvertapsPerformed.plus(1);
     updateOvertapButton();
 }
 
