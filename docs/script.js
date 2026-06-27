@@ -101,6 +101,11 @@ function Upgrade3() {
     U3BOUGHT_ += 1;
   }
 }
+function updateButtonVisibility() {
+    if (notesHit >= 1e6) {
+        document.getElementById("OvertapButton").style.display = "block";
+    }
+}
 
 setInterval(function() {
 
