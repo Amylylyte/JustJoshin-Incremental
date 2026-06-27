@@ -1,58 +1,54 @@
-
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 style="font-size: 25px; color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center">
+        <i>Just Joshin Incremental v1.0</i>
+    </h1>
 
-	<head> <link rel="stylesheet" href="style.css"></head>
-	<body>
-		<h1 style="font-size: 25px; color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center">
-			<i>Just Joshin Incremental v1.0</i>
-		</h1>
+    <p style="font-size: 19px; color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center">
+        This is <span style="font-size: 125%; color: #BB88GG;">Josh</span> <br>
+        <img src="chud.jpg" width="150" height="200" style="outline: 3px solid #BB88GG; border-radius: 8px;" alt="Josh's Clone Hero avatar"><br>
+        He has hit <span style="font-size: 125%;"><span id="NotesHit">0</span></span> notes in Clone Hero. <br>
+        He is hitting <span style="font-size: 120%;"><span id="NotesHitPerSecond">0</span></span> notes per second. <br>
+        His Hardest <span style="color: #00FFFF;">FC</span> is <span id="FCName">0</span>. (Next at <span style="color: #00FFFF;"><span id="NotesForNextFC">0</span></span> notes hit) <br>
+        Josh has confidence in his skill. x<span id="FCBoost">0</span> notes.
+    </p>
 
-		<p style="font-size: 19px;  color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center ">
-			This is <font-size: 125%><color: #BB88GG;>Josh</color></size> <br><img src="chud.jpg" width="150" length="200" outline="3px"><br>
-				 he has hit <font-size: 125%><span
-      id="NotesHit">0</span></size> notes in Clone Hero. <br>He is hitting <font-size: 120%><span id="NotesHitPerSecond">0</span></size> notes per second. <br>
-			His Hardest <color: #00FFFF;>FC</color> is <span id="FCName">0</span>. (Next at <color: #00FFFF;><span id="NotesForNextFC">0</span></color> hotes hit) <br>
-				Josh has confidence in his skill. x<span id="FCBoost">0</span> notes.
-		</p>
-					<button style="font-size: 19px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 55px; margin: 0 20px"
-					  onclick="CareerStart()">Click this button to make Josh hit notes :0</button>
-					<br>
-						<br>
-							<button
-							  style="font-size: 19px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 80px; margin: 0 20px"
-							  onclick="Upgrade1()">
-								Increase Josh's Speed by x1.2 <br><label
-      style="font-size: 19px; font-family: 'Segoe UI', Tahoma; text-align: center">
-									[Price: <span id="U1Price">0</span>
-									Score]
-								</label>
-							</button><br>
-							<button style="font-size: 19px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 80px; margin: 0 20px"
-							  onclick="Upgrade2()">
-								Increase Josh's Speed by x3<br><label
-      style="font-size: 19px; font-family: 'Segoe UI', Tahoma; text-align: center">
-									[Price: <span id="U2Price">0</span> Score.
-									Req: Stricken FC]
-								</label>
-							</button><br>
-							<button style="font-size: 19px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 80px; margin: 0 20px"
-							  onclick="Upgrade3()">
-								Increase Josh's Stamina by 25%.<br><label
-      style="font-size: 19px; font-family: 'Segoe UI', Tahoma; text-align: center">
-									[Price: <span id="U3Price">0</span> Score.
-									Req: Cliffs of Dover FC]
-								</label>
-							</button>
+    <button style="font-size: 19px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 55px; margin: 0 20px"
+            onclick="CareerStart()">
+        Click this button to make Josh hit notes :0
+    </button>
+    <br><br>
 
-							<br>
-								<br>
-									<br>
-										<br>
-											<br>
+    <button style="font-size: 19px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 80px; margin: 0 20px"
+            onclick="Upgrade1()">
+        Increase Josh's Speed by x1.2 <br>
+        <label style="font-size: 19px; font-family: 'Segoe UI', Tahoma; text-align: center">
+            [Price: <span id="U1Price">0</span> Score]
+        </label>
+    </button>
+    <br>
 
-												
-																	<script src="script.js"></script>
-																</body>
+    <button style="font-size: 19px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 80px; margin: 0 20px"
+            onclick="Upgrade2()">
+        Increase Josh's Speed by x3<br>
+        <label style="font-size: 19px; font-family: 'Segoe UI', Tahoma; text-align: center">
+            [Price: <span id="U2Price">0</span> Score. Req: Stricken FC]
+        </label>
+    </button>
+    <br>
 
+    <button style="font-size: 19px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 80px; margin: 0 20px"
+            onclick="Upgrade3()">
+        Increase Josh's Stamina by 25%.<br>
+        <label style="font-size: 19px; font-family: 'Segoe UI', Tahoma; text-align: center">
+            [Price: <span id="U3Price">0</span> Score. Req: Cliffs of Dover FC]
+        </label>
+    </button>
+
+    <script src="script.js"></script>
+</body>
 </html>
