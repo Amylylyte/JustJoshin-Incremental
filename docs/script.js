@@ -89,7 +89,7 @@ function updateOvertapButton() {
 
 // Career Start
 function CareerStart() {
-    if (notesHit === 0) {
+    if (notesHit.equals(0)) {  // Use .equals() for Decimal objects
         CareerStarted = 1;
     }
     clicks += 1;
