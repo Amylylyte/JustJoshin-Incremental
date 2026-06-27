@@ -497,8 +497,6 @@ function gameLoop(currentTime) {
 // Start the game loop
 requestAnimationFrame(gameLoop);
 
-requestAnimationFrame(animate);
-
 document.addEventListener('visibilitychange', () => {
     gameActive = !document.hidden;
     if (gameActive) {
