@@ -194,7 +194,7 @@ setInterval(function() {
             .times(hardestFCBoost)
             .times(U1BOOST_)
             .times(U2BOOST_)
-            .times(Decimal.pow(Decimal.log2(clicks + 9), U3BOOST_))
+            .times(Decimal.pow(Decimal.log2(clicks + 1), U3BOOST_))
             .times(OvertapsBoost);
             notesHit = notesHit.plus(notesHitPerSecond.times(deltaTime));
     }
