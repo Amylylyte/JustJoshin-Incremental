@@ -12,90 +12,151 @@
             text-align: center;
         }
         #OvertapButton {
-    display: none;
-    font-size: 19px;
-    background-color: #d2e6bc;
-    font-family: 'Segoe UI', Tahoma;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    height: 80px;
-    margin: 20px auto;
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    padding: 0 10px;
-}
-
-#OvertapButtonText {
-    text-align: center;
-    width: 100%;
-}
-
-            #OvertapButton span {
-    display: block;
-    text-align: center;
-    width: 100%;
-}
+            display: none;
+            font-size: 19px;
+            background-color: #d2e6bc;
+            font-family: 'Segoe UI', Tahoma;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            height: 80px;
+            margin: 20px auto;
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            padding: 0 10px;
+        }
+        #OvertapButtonText {
+            text-align: center;
+            width: 100%;
+        }
+        #OvertapButton span {
+            display: block;
+            text-align: center;
+            width: 100%;
         }
         #OvertapButton:disabled {
             opacity: 0.6;
             cursor: not-allowed;
         }
+        .tab-button {
+            font-size: 19px;
+            background-color: #dad1e3;
+            font-family: 'Segoe UI', Tahoma;
+            text-align: center;
+            align-items: center;
+            border-radius: 10px;
+            height: 55px;
+            margin: 0 10px;
+            padding: 0 20px;
+            cursor: pointer;
+            border: none;
+        }
+        .tab-button.active {
+            background-color: #BB88GG;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        .tab-content.active {
+            display: block;
+        }
     </style>
-    <p style="font-size: 19px; color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center">
-        This is <span style="font-size: 125%; color: #BB88GG;">Josh</span> <br>
-        <img src="chud.jpg" width="150" height="161" style="outline: 3px solid #BB88GG; border-radius: 8px;" alt="Josh's Clone Hero avatar"><br>
-        He has hit <span style="font-size: 135%;"><span id="NotesHit">0</span></span> notes in Clone Hero. <br>
-        He is hitting <span style="font-size: 135%;"><span id="NotesHitPerSecond">0</span></span> notes per second. <br>
-        His Hardest <span style="color: #00FFFF;">FC</span> is <span style="color: #00FFFF;"><span id="FCName">0</span></span>. (Next at <span style="color: #00FFFF;"><span id="NotesForNextFC">0</span></span> notes hit) <br>
-        Josh has confidence in his skill. x<span id="FCBoost">0</span> notes.
-    </p>
 
-    <button style="font-size: 19px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 55px; margin: 0 20px"
-            onclick="CareerStart()">
-        Click this button to make Josh hit notes :0
-    </button>
-    <br><br>
-
-    <button style="font-size: 19px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 80px; margin: 0 20px"
-            onclick="Upgrade1()">
-        Increase Josh's Speed by x1.2 <br>
-        <label style="font-size: 19px; font-family: 'Segoe UI', Tahoma; text-align: center">
-            [Price: <span id="U1Price">0</span> Score]
-        </label>
-    </button>
-    <br>
-
-    <button style="font-size: 19px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 80px; margin: 0 20px"
-            onclick="Upgrade2()">
-        Increase Josh's Speed by x3<br>
-        <label style="font-size: 19px; font-family: 'Segoe UI', Tahoma; text-align: center">
-            [Price: <span id="U2Price">0</span> Score. Req: Stricken FC]
-        </label>
-    </button>
-    <br>
-
-    <button style="font-size: 19px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 80px; margin: 0 20px"
-            onclick="Upgrade3()">
-        Increase Josh's Stamina by 25%.<br>
-        <label style="font-size: 19px; font-family: 'Segoe UI', Tahoma; text-align: center">
-            [Price: <span id="U3Price">0</span> Score. Req: Cliffs of Dover FC]
-        </label>
-    </button>
-    <br>
-    <br>
-    <br>
-    <div id="buttonContainer">
-        <button id="OvertapButton" onclick="OvertapReset()" disabled>
-    <span id="OvertapButtonText"></span>
-</button>
+    <!-- Tab Navigation -->
+    <div style="display: flex; justify-content: center; margin: 20px 0;">
+        <button class="tab-button active" onclick="openTab('home')">Home</button>
+        <button class="tab-button" onclick="openTab('stats')">Stats</button>
     </div>
 
-        <h1 style="font-size: 10px; color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center">
+    <!-- Home Tab Content -->
+    <div id="home" class="tab-content active">
+        <p style="font-size: 19px; color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center">
+            This is <span style="font-size: 125%; color: #BB88GG;">Josh</span> <br>
+            <img src="chud.jpg" width="150" height="161" style="outline: 3px solid #BB88GG; border-radius: 8px;" alt="Josh's Clone Hero avatar"><br>
+            He has hit <span style="font-size: 135%;"><span id="NotesHit">0</span></span> notes in Clone Hero. <br>
+            He is hitting <span style="font-size: 135%;"><span id="NotesHitPerSecond">0</span></span> notes per second. <br>
+            His Hardest <span style="color: #00FFFF;">FC</span> is <span style="color: #00FFFF;"><span id="FCName">0</span></span>. (Next at <span style="color: #00FFFF;"><span id="NotesForNextFC">0</span></span> notes hit) <br>
+            Josh has confidence in his skill. x<span id="FCBoost">0</span> notes.
+        </p>
+
+        <button style="font-size: 19px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 55px; margin: 0 20px"
+                onclick="CareerStart()">
+            Click this button to make Josh hit notes :0
+        </button>
+        <br><br>
+
+        <button style="font-size: 19px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 80px; margin: 0 20px"
+                onclick="Upgrade1()">
+            Increase Josh's Speed by x1.2 <br>
+            <label style="font-size: 19px; font-family: 'Segoe UI', Tahoma; text-align: center">
+                [Price: <span id="U1Price">0</span> Score]
+            </label>
+        </button>
+        <br>
+
+        <button style="font-size: 19px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 80px; margin: 0 20px"
+                onclick="Upgrade2()">
+            Increase Josh's Speed by x3<br>
+            <label style="font-size: 19px; font-family: 'Segoe UI', Tahoma; text-align: center">
+                [Price: <span id="U2Price">0</span> Score. Req: Stricken FC]
+            </label>
+        </button>
+        <br>
+
+        <button style="font-size: 19px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 80px; margin: 0 20px"
+                onclick="Upgrade3()">
+            Increase Josh's Stamina by 25%.<br>
+            <label style="font-size: 19px; font-family: 'Segoe UI', Tahoma; text-align: center">
+                [Price: <span id="U3Price">0</span> Score. Req: Cliffs of Dover FC]
+            </label>
+        </button>
+        <br>
+        <br>
+        <br>
+        <div id="buttonContainer">
+            <button id="OvertapButton" onclick="OvertapReset()" disabled>
+                <span id="OvertapButtonText"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Stats Tab Content -->
+    <div id="stats" class="tab-content">
+        <h2>Stats</h2>
+        <p>This is the stats page. Add your stats content here!</p>
+        <!-- Add your stats content here -->
+    </div>
+
+    <h1 style="font-size: 10px; color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center">
         <i>Just Joshin Incremental v1.0</i>
     </h1>
+
+    <script>
+        // Tab switching logic
+        function openTab(tabName) {
+            // Hide all tab content
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            // Remove active class from all tab buttons
+            const tabButtons = document.getElementsByClassName("tab-button");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+
+            // Show the selected tab content
+            document.getElementById(tabName).classList.add("active");
+
+            // Add active class to the clicked button
+            event.target.classList.add("active");
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/break_infinity.js@2"></script>
     <script src="script.js"></script>
 </body>
