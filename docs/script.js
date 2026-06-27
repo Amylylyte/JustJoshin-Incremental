@@ -27,9 +27,17 @@ let OvertapsBoost = new Decimal(0);
 let OU1Purchased = 0;
 let OU2Purchased = 0;
 let OU3Purchased = 0;
+let OU4Purchased = 0;
+let OU5Purchased = 0;
+let OU6Purchased = 0;
+let OU7Purchased = 0;
+let OU8Purchased = 0;
 let OU1Boost = new Decimal(1);
 let OU2Boost = new Decimal(1);
 let OU3Boost = new Decimal(1);
+let OU5Boost = new Decimal(1);
+let OU7Boost = new Decimal(1);
+let OU8Boost = new Decimal(1);
 let timePlayed = new Decimal(0);
 
 // FC Names
