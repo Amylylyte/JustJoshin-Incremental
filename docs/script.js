@@ -159,9 +159,11 @@ setInterval(function() {
     // Calculate pendingOvertap
     if (hardestFC >= 5) {
         pendingOvertap = Math.pow(10, (Math.log10(notesHit/3.03e9)/9));
+        OvertapButton.disabled = false;
     }
     else if (hardestFC < 5) {
         pendingOvertap = 0;
+        OvertapButton.disabled = true;
     }
 
 
