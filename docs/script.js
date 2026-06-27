@@ -408,7 +408,7 @@ setInterval(function() {
     }
 
     // Update FC-related values
-    hardestFCBoost = Decimal.pow(1.5, hardestFC).pow(OU5Boost).pow(U3BOOST_);
+    hardestFCBoost = Decimal.pow(1.5, hardestFC).times(U3BOOST_).pow(OU5Boost);
     if (hardestFC < 17) {
     notesForNextHardest = new Decimal(1000)
         .pow(Decimal.pow(1.335785623, hardestFC || 0))
