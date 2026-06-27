@@ -45,6 +45,14 @@ function CareerStart() {
     clicks += 1;
 }
 
+function formatNumber(num) {
+    if (num >= 1000000000) {
+        return num.toExponential(2).replace("e+", "e");
+    } else {
+        return num.toLocaleString();
+    }
+}
+
 function animate(currentTime) {
     deltaTime = (currentTime - lastTime) / 1000; // Convert to seconds
     lastTime = currentTime;
@@ -100,44 +108,12 @@ setInterval(function() {
   if (CareerStarted == 0) {
     hardestFC = 0
   }
-  if (notesHit < 1e3) {
-    document.getElementById("NotesHit").innerHTML = notesHit.toFixed(2)
-  }
-  if (notesHit >= 1e3) {
-    document.getElementById("NotesHit").innerHTML = notesHit.toExponential(2);
-  }
-
-  if (notesHitPerSecond < 1e3) {
-    document.getElementById("NotesHitPerSecond").innerHTML = notesHitPerSecond.toFixed(2);
-  }
-  if (notesHitPerSecond >= 1e3) {
-    document.getElementById("NotesHitPerSecond").innerHTML = notesHitPerSecond.toExponential(2);
-  }
-  document.getElementById("FCName").textContent = FCName[hardestFC];
-  
-  if (notesForNextHardest < 1e3) {
-document.getElementById("NotesForNextFC").innerHTML = notesForNextHardest.toFixed(2);
-  }
-  else if (notesForNextHardest >= 1e3) {
-   document.getElementById("NotesForNextFC").innerHTML = notesForNextHardest.toExponential(2);
-  }
-  document.getElementById("FCBoost").textContent = hardestFCBoost.toFixed(2);
-  if (U1PRICE_ < 1e3) {
-    document.getElementById("U1Price").innerHTML = U1PRICE_.toFixed(2)
-  }
-  if (U1PRICE_ >= 1e3) {
-    document.getElementById("U1Price").innerHTML = U1PRICE_.toExponential(2);
-  }
-  if (U2PRICE_ <= 1e3) {
-    document.getElementById("U2Price").innerHTML = U2PRICE_.toFixed(2)
-  }
-  if (U2PRICE_ > 1e3) {
-    document.getElementById("U2Price").innerHTML = U2PRICE_.toExponential(2);
-  }
-  if (U3PRICE_ < 1e3) {
-    document.getElementById("U3Price").innerHTML = U3PRICE_.toFixed(2)
-  }
-  if (U3PRICE_ >= 1e3) {
-    document.getElementById("U3Price").innerHTML = U3PRICE_.toExponential(2);
-  }
+document.getElementById("NotesHit").innerHTML = formatNumber(notesHit);
+document.getElementById("NotesHitPerSecond").innerHTML = formatNumber(notesHitPerSecond);
+document.getElementById("FCName").textContent = FCName[hardestFC];
+document.getElementById("NotesForNextFC").innerHTML = formatNumber(notesForNextHardest);
+document.getElementById("FCBoost").innerHTML = formatNumber(hardestFCBoost);
+document.getElementById("U1Price").innerHTML = formatNumber(U1PRICE_);
+document.getElementById("U2Price").innerHTML = formatNumber(U2PRICE_);
+document.getElementById("U3Price").innerHTML = formatNumber(U3PRICE_);
 }, 25)
