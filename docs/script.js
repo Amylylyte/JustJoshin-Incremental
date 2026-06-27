@@ -151,36 +151,42 @@ function updateOvertapUpgradeButtons() {
         overtapUpgrade1Button.disabled = false;
         overtapUpgrade1Text.textContent =
             "(Price: 1 Overtap Point)";
+        OU1Boost = new Decimal(1);
     }
     if (OU2Purchased == 0) {
         overtapUpgrade2Button.style.backgroundColor = "#70964c";
         overtapUpgrade2Button.disabled = false;
         overtapUpgrade2Text.textContent =
             "(Price: 10 Overtap Points)";
+        OU1Boost = new Decimal(2);
     }
     if (OU3Purchased == 0) {
         overtapUpgrade3Button.style.backgroundColor = "#70964c";
         overtapUpgrade3Button.disabled = false;
         overtapUpgrade3Text.textContent =
             "(Price: 250 Overtap Points)";
+        OU1Boost = new Decimal(3);
     }
     if (OU1Purchased == 1) {
         overtapUpgrade1Button.style.backgroundColor = "#95e347";
         overtapUpgrade1Button.disabled = true;
         overtapUpgrade1Text.textContent =
             "Currently: x" + formatNumber(OU1Boost);
+        OU1Boost = new Decimal(1).times(new Decimal(1.5).pow(log2((timePlayed.div(60)).plus(1))));
     }
     if (OU2Purchased == 1) {
         overtapUpgrade2Button.style.backgroundColor = "#95e347";
         overtapUpgrade2Button.disabled = true;
         overtapUpgrade2Text.textContent =
             "Currently: x" + formatNumber(OU2Boost);
+        OU2Boost = new Decimal(1).times(new Decimal(1.25).pow(log10((notesHit).plus(1))));
     }
     if (OU3Purchased == 1) {
         overtapUpgrade3Button.style.backgroundColor = "#95e347";
         overtapUpgrade3Button.disabled = true;
         overtapUpgrade3Text.textContent =
             "";
+        OU3Boost = new Decimal(0.9);
     }
 }
 
@@ -293,15 +299,17 @@ setInterval(function() {
     U3BOOST_ = Decimal.pow(U3POWER_, U3BOUGHT_);
     U1PRICE_ = new Decimal(25)
             .times(Decimal.pow(1.2, U1BOUGHT_))
-            .pow(Decimal.pow(1.015, U1BOUGHT_))
+            .pow(Decimal.pow(new Decimal(1).plus((new Decimal(0.015).times(OU3Boost))), U1BOUGHT_))
+            .pow(OU3Boost)
             .floor();
     U2PRICE_ = new Decimal(1000)
             .times(Decimal.pow(5, U2BOUGHT_))
-            .pow(Decimal.pow(1.05, U2BOUGHT_))
+            .pow(Decimal.pow(new Decimal(1).plus((new Decimal(0.05).times(OU3Boost))), U2BOUGHT_))
+            .pow(OU3Boost)
             .floor();
     U3PRICE_ = new Decimal(1e30)
             .times(Decimal.pow(5, U3BOUGHT_))
-            .pow(Decimal.pow(1.05, U3BOUGHT_))
+            .pow(Decimal.pow(new Decimal(1).plus((new Decimal(0.05).times(OU3Boost))), U3BOUGHT_))
             .floor();
 
     if (CareerStarted === 0) {
