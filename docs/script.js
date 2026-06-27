@@ -115,14 +115,22 @@ function updateOvertapButton() {
     const overtapButton = document.getElementById("OvertapButton");
     const overtapButtonText = document.getElementById("OvertapButtonText");
 
-    if (hardestFC >= 3) {
+    if (hardestFC >= 5) {
         overtapButton.style.display = "block";
         overtapButton.disabled = false;
+        overtapButton.style.backgroundColor = "#95e347";
         overtapButtonText.textContent =
             resetText(hardestFC) +
             " (" +
             formatNumber(pendingOvertap) +
             ")";
+    }
+    if (hardestFC >= 3 && hardestFC < 5) {
+        overtapButton.style.display = "block";
+        overtapButton.disabled = true;
+        overtapButton.style.backgroundColor = "#70964c";
+        overtapButtonText.textContent =
+            resetText(hardestFC)
     } else {
         overtapButton.style.display = "none";
         overtapButton.disabled = true;
