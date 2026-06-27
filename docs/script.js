@@ -132,6 +132,24 @@ function updateHeaderButtons() {
     });
 }
 
+function updateOvertapUpgradeButtons() {
+    const overtapUpgrade1Button = document.getElementById("OvertapButton");
+    const overtapButtonText = document.getElementById("OvertapButtonText");
+
+    if (hardestFC >= 3) {
+        overtapButton.style.display = "block";
+        overtapButton.disabled = false;
+        overtapButtonText.textContent =
+            resetText(hardestFC) +
+            " (" +
+            formatNumber(pendingOvertap) +
+            ")";
+    } else {
+        overtapButton.style.display = "none";
+        overtapButton.disabled = true;
+    }
+}
+
 // Career Start
 function CareerStart() {
     if (notesHit.equals(0)) {  // Use .equals() for Decimal objects
