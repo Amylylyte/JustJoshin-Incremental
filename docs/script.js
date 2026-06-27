@@ -274,8 +274,8 @@ setInterval(function() {
             .times(U2BOOST_)
             .times(Decimal.pow(Decimal.log2(clicks + 1), U3BOOST_))
             .times(OvertapsBoost)
-            .times(OU1BOOST)
-            .times(OU2BOOST);
+            .times(OU1Boost)
+            .times(OU2Boost);
             notesHit = notesHit.plus(notesHitPerSecond.times(deltaTime));
     }
     timePlayed = timePlayed.plus(new Decimal(1).times(deltaTime));
