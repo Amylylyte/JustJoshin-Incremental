@@ -164,13 +164,13 @@ function updateOvertapUpgradeButtons() {
         overtapUpgrade1Text.textContent =
             "Currently: x" + formatNumber(OU1Boost);
     }
-    if (OU2Purchased == 2) {
+    if (OU2Purchased == 1) {
         overtapUpgrade2Button.style.backgroundColor = "#95e347";
         overtapUpgrade2Button.disabled = true;
         overtapUpgrade2Text.textContent =
             "Currently: x" + formatNumber(OU2Boost);
     }
-    if (OU3Purchased == 3) {
+    if (OU3Purchased == 1) {
         overtapUpgrade3Button.style.backgroundColor = "#95e347";
         overtapUpgrade3Button.disabled = true;
         overtapUpgrade3Text.textContent =
