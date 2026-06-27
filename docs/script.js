@@ -46,7 +46,10 @@ function CareerStart() {
 }
 
 function formatNumber(num) {
-    if (num >= 1000) {
+    if (num >= 1000000000) {
+        return num.toExponential(2).replace("e+", "e");
+    }
+    else if (num >= 1000) {
         return num.toLocaleString(); // Adds commas for thousands
     } else if (Number.isInteger(num)) {
         return num.toString(); // No decimals for integers
