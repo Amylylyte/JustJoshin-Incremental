@@ -23,6 +23,7 @@ let deltaTime = 0;
 let pendingOvertap = new Decimal(0);
 let OvertapPoints = new Decimal(0);
 let OvertapsPerformed = new Decimal(0);
+let OvertapsBoost = new Decimal(0);
 
 // FC Names
 const FCName = {
@@ -243,6 +244,8 @@ setInterval(function() {
         pendingOvertap = new Decimal(0);
         OvertapButton.disabled = true;
     }
+
+    OvertapsBoost = (OvertapsPerformed.plus(1)).pow(2)
 
     // Update UI
     document.getElementById("NotesHit").textContent = formatNumber(notesHit);
