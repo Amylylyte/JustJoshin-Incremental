@@ -453,6 +453,14 @@ function updateGame(deltaTime) {
         CareerStarted = 1;
     }
 
+        if (OU4Purchased == 1) {
+        Upgrade1();
+        Upgrade2();
+    }
+
+}
+
+function renderGame() {
     // Update UI
     document.getElementById("NotesHit").textContent = formatNumber(notesHit);
     document.getElementById("NotesHitPerSecond").textContent = formatNumber(notesHitPerSecond);
@@ -469,15 +477,10 @@ function updateGame(deltaTime) {
     
 
     // Update Overtap Button
-    if (OU4Purchased == 1) {
-        Upgrade1();
-        Upgrade2();
-    }
     updateOvertapButton();
     updateOvertapUpgradeButtons();
     updateHeaderButtons();
 }
-
 function gameLoop(currentTime) {
     if (!gameActive) return;
 
