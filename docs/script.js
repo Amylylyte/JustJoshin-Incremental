@@ -259,8 +259,7 @@ function updateOvertapUpgradeButtons() {
         overtapUpgrade5Button.disabled = true;
         overtapUpgrade5Text.textContent =
             "Currently: ^" + formatNumber(OU5Boost);
-        OU5Boost = OU5Boost = new Decimal(1).times(
-    new Decimal(OvertapPoints).plus(10).log10().log2()
+        OU5Boost = new Decimal(1).times((new Decimal(OvertapPoints).plus(10).log10().log2()))
 );
     }
     if (OU6Purchased == 1) {
