@@ -120,15 +120,17 @@ function updateOvertapButton() {
     }
 }
 function updateHeaderButtons() {
-    const headerButtons = document.getElementById("tab-button");
+    const headerButtons = document.querySelectorAll(".tab-button");
 
-    if (hardestFC >= 3) {
-        headerButtons.style.display = "block";
-        headerButtons.disabled = false;
-    } else {
-        headerButtons.style.display = "none";
-        headerButtons.disabled = true;
-    }
+    headerButtons.forEach(button => {
+        if (hardestFC >= 3) {
+            button.style.display = "block";
+            button.disabled = false;
+        } else {
+            button.style.display = "none";
+            button.disabled = true;
+        }
+    });
 }
 
 // Career Start
