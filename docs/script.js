@@ -257,6 +257,8 @@ setInterval(function() {
     document.getElementById("U2Price").textContent = formatNumber(U2PRICE_);
     document.getElementById("U3Price").textContent = formatNumber(U3PRICE_);
     document.getElementById("overtapPoints").textContent = formatNumber(OvertapPoints);
+    document.getElementById("overtapsPerformed").textContent = formatNumber(OvertapsPerformed);
+    document.getElementById("overtapsBoost").textContent = formatNumber(OvertapsBoost);
 
     // Update Overtap Button
     updateOvertapButton();
