@@ -24,22 +24,14 @@ let pendingOvertap = new Decimal(0);
 
 // FC Names
 const FCName = {
-    0: "None",
-    1: "Stricken",
-    2: "Cliffs of Dover",
-    3: "One",
-    4: "TTFAF",
-    5: "Soulless 3",
-    6: "Wiiolation",
-    7: "DNA Uber Solo 9",
-    8: "Minds of The Mad 125%",
-    9: "Dashed Hopes III",
-    10: "Prevail",
-    11: "Tramatic Carnival 115%",
-    12: "Soulless 6 105%",
-    13: "Prevail 115%",
-    14: "Supernovae",
-    15: "Supernovae 125",
+    0: "None", 1: "Stricken", 2: "Cliffs of Dover", 3: "One", 4: "TTFAF", 5: "Soulless 3", 6: "Wiiolation", 7: "DNA Uber Solo 9", 8: "Minds of The Mad 125%",
+    9: "Dashed Hopes III", 10: "Prevail", 11: "Tramatic Carnival 115%", 12: "Soulless 6 105%", 13: "Prevail 115%", 14: "Supernovae", 15: "Spacerace 90%",
+    16: "Supernovae 125%", 17: "Spacerace 100%", 18: "Schmootopia", 19: "Cosmic Embassy", 20: "Hypnovia", 21: "Uber Solo", 22: "Cosmic Embassy 125%", 23: "Egoless",
+    24: "Egoless 125%", 25: "Uber Solo 2", 26: "Uber Solo 2 125%", 27: "Uber Solo 2 150%", 28: "Fully Soulless 1,000%", 29: "Egoless 1,000%", 30: "Uber Solo 2 1,000%",
+    31: "Stricken 100,000%", 32: "One 1,000,000%", 33: "TTFAF 2,000,000%", 34: "Prevail 5,000,000%", 35: "Soulless 6 6,666,660%", 36: "Supernovae 12,125,125%",
+    37: "Cosmic Embassy 43,765,980%", 38: "Hypnovia 123,456,780%", 39: "Uber Solo 1e9%", 40: "Fully Soulless 1.12e12%", 41: "Egoless 9.99e15%", 42: "Uber Solo 2 2.22e22%",
+    43: "My Name is Jonas 5e25%", 44: "xXXi_wud_nvrstøp_ÜXXx (Remix) 3.33e33%", 45: "Glacial Storm 5 5.55e55%", 46: "Soulless 1337 1e100%", 47: "Supernovae 1.25e125%",
+    48: "Schmootopia 1e500%", 49: "Act 9: Egoless 9.99e999%", 50: "Slow Ride 9.99e99,999%"
 };
 
 // Reset Text Logic
@@ -163,7 +155,7 @@ setInterval(function() {
 
     // Check for new FC
     const fcThreshold = new Decimal(1000)
-        .pow(Decimal.pow(4/2.999, hardestFC))
+        .pow(Decimal.pow(1.335785623, hardestFC))
         .floor();
     if (notesHit.greaterThan(fcThreshold)) {
         hardestFC += 1;
@@ -172,7 +164,7 @@ setInterval(function() {
     // Update FC-related values
     hardestFCBoost = Decimal.pow(1.5, hardestFC);
     notesForNextHardest = new Decimal(1000)
-        .pow(Decimal.pow(4/3, hardestFC))
+        .pow(Decimal.pow(1.335785623, hardestFC))
         .floor();
     U1BOOST_ = Decimal.pow(U1POWER_, U1BOUGHT_);
     U2BOOST_ = Decimal.pow(U2POWER_, U2BOUGHT_);
