@@ -379,30 +379,8 @@ function OvertapReset() {
     updateOvertapButton();
 }
 
-// Animation Loop
-function gameLoop(currentTime) {
-    if (!gameActive) return;
-
-    const deltaTime = currentTime - lastTime;
-    lastTime = currentTime;
-
-    // Update game logic (e.g., player position, enemies, etc.)
-    updateGame(deltaTime);
-
-    // Render the game
-    renderGame();
-
-    // Continue the loop
-    requestAnimationFrame(gameLoop);
-}
-
-// Start the game loop
-requestAnimationFrame(gameLoop);
-
-requestAnimationFrame(animate);
-
 // Main Game Loop
-setInterval(function() {
+function updateGame(deltaTime) {
     if (CareerStarted === 1) {
         notesHitPerSecond = new Decimal(1)
             .times(hardestFCBoost)
@@ -498,7 +476,28 @@ setInterval(function() {
     updateOvertapButton();
     updateOvertapUpgradeButtons();
     updateHeaderButtons();
-}, 25);
+}
+
+function gameLoop(currentTime) {
+    if (!gameActive) return;
+
+    const deltaTime = currentTime - lastTime;
+    lastTime = currentTime;
+
+    // Update game logic (e.g., player position, enemies, etc.)
+    updateGame(deltaTime);
+
+    // Render the game
+    renderGame();
+
+    // Continue the loop
+    requestAnimationFrame(gameLoop);
+}
+
+// Start the game loop
+requestAnimationFrame(gameLoop);
+
+requestAnimationFrame(animate);
 
 document.addEventListener('visibilitychange', () => {
     gameActive = !document.hidden;
