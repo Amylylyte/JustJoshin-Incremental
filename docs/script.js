@@ -57,10 +57,10 @@ function formatNumber(num) {
             return `${formattedCoefficient}e${exponent}`;
         } else if (num.greaterThanOrEqualTo(1000)) {
             return num.toNumber().toLocaleString();
-        } else if (num.isInteger()) {
+        } else if (num.eq(num.floor())) {
             return num.toString();
         } else {
-            return num.toNumber().toFixed(2);
+            return num.toNumber().toFixed(2).replace();
         }
     } else {
         // Fallback for non-Decimal numbers
@@ -74,10 +74,11 @@ function formatNumber(num) {
         } else if (Number.isInteger(num)) {
             return num.toString();
         } else {
-            return num.toFixed(2);
+            return num.toFixed(2).replace();
         }
     }
 }
+
 
 
 
