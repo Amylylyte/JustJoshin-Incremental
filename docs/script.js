@@ -57,7 +57,6 @@ function animate(currentTime) {
     deltaTime = (currentTime - lastTime) / 1000; // Convert to seconds
     lastTime = currentTime;
 
-    console.log("DeltaTime:", deltaTime);
     requestAnimationFrame(animate);
 }
 
