@@ -137,7 +137,9 @@ document.getElementById("FCBoost").innerHTML = formatNumber(hardestFCBoost);
 document.getElementById("U1Price").innerHTML = formatNumber(U1PRICE_);
 document.getElementById("U2Price").innerHTML = formatNumber(U2PRICE_);
 document.getElementById("U3Price").innerHTML = formatNumber(U3PRICE_);
-document.getElementById("ResetText").textContent = resetText[hardestFC];
-document.getElementById("PendingOvertap").innerHTML = formatNumber(pendingOvertap);
+function updateOvertapButtonText(resetValue, pendingValue) {
+    document.getElementById("ResetText").textContent = resetValue;
+    document.getElementById("PendingOvertap").textContent = pendingValue;
+}
     updateButtonVisibility();
 }, 25)
