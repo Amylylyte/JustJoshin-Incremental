@@ -169,7 +169,7 @@ function OvertapReset() {
     U2BOUGHT_ = 0;
     U3BOUGHT_ = 0;
     hardestFC = 0;
-    Clicks = 0;
+    clicks = 0;
     CareerStarted = 0;
     notesHit = new Decimal(0);
     OvertapPoints = OvertapPoints.plus(pendingOvertap);
