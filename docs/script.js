@@ -180,7 +180,7 @@ function updateOvertapUpgradeButtons() {
         overtapUpgrade2Button.disabled = true;
         overtapUpgrade2Text.textContent =
             "Currently: x" + formatNumber(OU2Boost);
-        OU2Boost = new Decimal(1).times(new Decimal(1.25).pow(log10((notesHit).plus(1))));
+        OU2Boost = new Decimal(1).times(new Decimal(1.1).pow(((notesHit).plus(1)).log10()));
     }
     if (OU3Purchased == 1) {
         overtapUpgrade3Button.style.backgroundColor = "#95e347";
