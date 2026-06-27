@@ -133,7 +133,7 @@ function updateOvertapButton() {
             formatNumber(pendingOvertap) +
             ")";
     }
-    if (hardestFC >= 3 && hardestFC < 5) {
+    else if (hardestFC >= 3 && hardestFC < 5) {
         overtapButton.style.display = "block";
         overtapButton.disabled = true;
         overtapButton.style.backgroundColor = "#70964c";
