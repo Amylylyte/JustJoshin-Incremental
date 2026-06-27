@@ -392,7 +392,7 @@ setInterval(function() {
             .times(hardestFCBoost)
             .times(U1BOOST_)
             .times(U2BOOST_)
-            .times(Decimal.pow(Decimal.log2(clicks + 1), U3BOOST_))
+            .times(Decimal.pow(Decimal.log2(clicks + 1), 1.25))
             .times(OvertapsBoost)
             .times(OU1Boost)
             .times(OU2Boost);
@@ -407,7 +407,7 @@ setInterval(function() {
     }
 
     // Update FC-related values
-    hardestFCBoost = Decimal.pow(1.5, hardestFC).pow(OU5Boost);
+    hardestFCBoost = Decimal.pow(1.5, hardestFC).pow(OU5Boost).pow(U3BOOST_);
     if (hardestFC < 17) {
     notesForNextHardest = new Decimal(1000)
         .pow(Decimal.pow(1.335785623, hardestFC || 0))
