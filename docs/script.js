@@ -159,14 +159,14 @@ function updateOvertapUpgradeButtons() {
         overtapUpgrade2Button.disabled = false;
         overtapUpgrade2Text.textContent =
             "(Price: 10 Overtap Points)";
-        OU1Boost = new Decimal(2);
+        OU2Boost = new Decimal(1);
     }
     if (OU3Purchased == 0) {
         overtapUpgrade3Button.style.backgroundColor = "#70964c";
         overtapUpgrade3Button.disabled = false;
         overtapUpgrade3Text.textContent =
             "(Price: 250 Overtap Points)";
-        OU1Boost = new Decimal(3);
+        OU3Boost = new Decimal(1);
     }
     if (OU1Purchased == 1) {
         overtapUpgrade1Button.style.backgroundColor = "#95e347";
