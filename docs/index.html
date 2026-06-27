@@ -65,6 +65,63 @@
         .tab-content.active {
             display: block;
         }
+        #OvertapButton1 {
+            font-size: 19px;
+            background-color: #dad1e3;
+            font-family: 'Segoe UI', Tahoma;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            height: 80px;
+            width: 160px;
+            margin: 20px 20px;
+            display: flex;
+            flex-direction: column;
+            padding: 0 10px;
+        }
+        #OvertapButton1Text {
+            text-align: center;
+            width: 100%;
+        }
+        #OvertapButton2 {
+            font-size: 19px;
+            background-color: #dad1e3;
+            font-family: 'Segoe UI', Tahoma;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            height: 80px;
+            width: 160px;
+            margin: 20px 20px;
+            display: flex;
+            flex-direction: column;
+            padding: 0 10px;
+        }
+        #OvertapButton2Text {
+            text-align: center;
+            width: 100%;
+        }
+        #OvertapButton3 {
+            font-size: 19px;
+            background-color: #dad1e3;
+            font-family: 'Segoe UI', Tahoma;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            height: 80px;
+            width: 160px;
+            margin: 20px 20px;
+            display: flex;
+            flex-direction: column;
+            padding: 0 10px;
+        }
+        #OvertapButton3Text {
+            text-align: center;
+            width: 100%;
+        }
     </style>
 
     <!-- Tab Navigation -->
@@ -133,6 +190,44 @@
             Josh has <span style="font-size: 135%; color: #dad1e3;"><span id="overtapPoints">0</span></span> Overtap Points.<br>
                 Additionally, Josh has modified his guitar <span style="font-size: 135%; color: #dad1e3;"><span id="overtapsPerformed">0</span></span> times, multiplying notes hit by x<span style="font-size: 135%; color: #dad1e3;"><span id="overtapsBoost">0</span></span>.</p>
     </div>
+    <button style="font-size: 17px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 60px; width: 120px margin: 20px 20px"
+                onclick="OvertapUpgrade1()">
+            Multiplier to Notes Hit based on time played.<br>
+            <label style="font-size: 19px; font-family: 'Segoe UI', Tahoma; text-align: center">
+                [Price: 1 Overtap Point]
+            </label><br>
+        Currently: x<span id="OU1Effect">0</span>
+        </button>
+    <button style="font-size: 17px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 60px; width: 120px margin: 20px 20px"
+                onclick="OvertapUpgrade2()">
+            Multiplier to Notes Hit based on Notes Hit.<br>
+            <label style="font-size: 19px; font-family: 'Segoe UI', Tahoma; text-align: center">
+                [Price: 10 Overtap Point]
+            </label><br>
+        Currently: x<span id="OU2Effect">0</span>
+        </button>
+    <button style="font-size: 17px; background-color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center; align-items: center; border-radius: 10px; height: 60px; width: 120px margin: 20px 20px"
+                onclick="OvertapUpgrade3()">
+            Slightly decrease Upgrades' Price.<br>
+            <label style="font-size: 19px; font-family: 'Segoe UI', Tahoma; text-align: center">
+                [Price: 100 Overtap Point]
+            </label><br>
+        </button>
+    <div id="buttonContainer">
+            <button id="OvertapUpgrade1" onclick="OvertapUpgrade1()" disabled>
+                <span id="OvertapUpgrade1Text"></span>
+            </button>
+        </div>
+    <div id="buttonContainer">
+            <button id="OvertapUpgrade2" onclick="OvertapUpgrade2()" disabled>
+                <span id="OvertapUpgrade2Text"></span>
+            </button>
+        </div>
+    <div id="buttonContainer">
+            <button id="OvertapUpgrade3" onclick="OvertapUpgrade3()" disabled>
+                <span id="OvertapUpgrade3Text"></span>
+            </button>
+        </div>
 
     <h1 style="font-size: 10px; color: #dad1e3; font-family: 'Segoe UI', Tahoma; text-align: center">
         <i>Just Joshin Incremental v1.0</i>
