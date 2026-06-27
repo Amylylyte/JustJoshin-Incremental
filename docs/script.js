@@ -391,7 +391,7 @@ function OvertapUpgrade8() {
 function savePlayer() {
       const player = {
         notes: notesHit,
-    started: careerStarted,
+    started: CareerStarted,
     u1: U1BOUGHT_,
     u2: U2BOUGHT_,
     u3: U3BOUGHT_,
@@ -437,7 +437,7 @@ function OvertapReset() {
 
 // Animation Loop
 function animate(currentTime) {
-    deltaTime = (currentTime - lastTime) / 1000;
+    deltaTime = (currentTime - lastTime) / 500;
     lastTime = currentTime;
     requestAnimationFrame(animate);
 }
@@ -539,7 +539,7 @@ setInterval(function() {
     updateOvertapButton();
     updateOvertapUpgradeButtons();
     updateHeaderButtons();
-}, 50);
+}, 24);
 
 setInterval(savePlayer, 30000);
 
