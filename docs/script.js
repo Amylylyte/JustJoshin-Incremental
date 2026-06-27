@@ -22,6 +22,7 @@ let clicks = 0; // Integer, no need for Decimal
 let deltaTime = 0;
 let pendingOvertap = new Decimal(0);
 let OvertapPoints = new Decimal(0);
+let OvertapsPerformed = new Decimal(0);
 
 // FC Names
 const FCName = {
@@ -123,7 +124,7 @@ function updateHeaderButtons() {
     const headerButtons = document.querySelectorAll(".tab-button");
 
     headerButtons.forEach(button => {
-        if (hardestFC >= 3) {
+        if (hardestFC >= 3 || OvertapsPerformed.greaterThanOrEqualTo(1)) {
             button.style.display = "block";
             button.disabled = false;
         }
