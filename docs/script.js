@@ -69,7 +69,7 @@ function formatNumber(num) {
 function updateOvertapButton() {
     const overtapButton = document.getElementById("OvertapButton");
 
-    if (hardestFC >= 5) {
+    if (hardestFC >= 3) {
         overtapButton.style.display = "block";
         document.getElementById("ResetText").textContent = resetText(hardestFC);
         document.getElementById("PendingOvertap").textContent = formatNumber(pendingOvertap);
@@ -160,6 +160,10 @@ setInterval(function() {
     if (hardestFC >= 5) {
         pendingOvertap = Math.pow(10, (Math.log10(notesHit/3.03e9)/9));
     }
+    else if (hardestFC < 5) {
+        pendingOvertap = 0;
+    }
+
 
     // Update UI
     document.getElementById("NotesHit").textContent = formatNumber(notesHit);
