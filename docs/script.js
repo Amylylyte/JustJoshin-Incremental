@@ -80,6 +80,7 @@ function formatNumber(num) {
 }
 
 
+
 // Update Overtap Button Visibility and Text
 function updateOvertapButton() {
     const overtapButton = document.getElementById("OvertapButton");
